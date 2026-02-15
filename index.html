@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Свадебное приглашение</title>
+
+  <!-- Fonts with Cyrillic support -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <section class="parallax-container">
+    <div class="parallax">
+      <img src="images/photo_2026-02-15_01-36-53.jpg" alt="Фото пары">
+    </div>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+        <ul class="left hide-on-med-and-down">
+          <li><a href="#home">Свадьба</a></li>
+          <li><a href="#wedding">Подробности</a></li>
+          <li><a href="#rsvp">Подтвердить присутствие</a></li>
+        </ul>
+
+        <!-- Language switch (desktop) -->
+        <ul class="right hide-on-med-and-down lang-nav">
+          <li><a class="lang-link is-active" href="./index.html" aria-label="Русская версия">RU</a></li>
+          <li><a class="lang-link" href="./index_es.html" aria-label="Versión en español">ES</a></li>
+        </ul>
+
+        <ul class="side-nav grey darken-4" id="mobile-demo">
+          <li><a href="#home">Свадьба<i class="material-icons right">favorite</i></a></li>
+          <li><a href="#wedding">Подробности<i class="material-icons right">info</i></a></li>
+          <li><a href="#rsvp">Подтвердить присутствие<i class="material-icons right">send</i></a></li>
+
+          <!-- Language switch (mobile) -->
+          <li class="divider"></li>
+          <li><a class="lang-link is-active" href="./index.html">RU</a></li>
+          <li><a class="lang-link" href="./index-es.html">ES</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="container intro" id="home">
+      <header class="center-align">
+        <h1>Артём &amp; Marilaura</h1>
+        <h6>Мы женимся!</h6>
+        <h5>18.07.2026</h5>
+      </header>
+    </section>
+  </section>
+
+  <section class="parallax-container">
+    <div class="parallax">
+      <img
+        src="images/photo_2024-07-11_23-.jpg"
+        alt="Фон"
+      >
+    </div>
+
+    <section class="info" id="wedding">
+      <div class="row container center-align tdetails">
+        <header class="col s12">
+          <h1>Свадьба</h1>
+        </header>
+      </div>
+
+      <div class="row container details-grid">
+        <div class="col s12 m6 l3">
+          <div class="detail-card">
+            <h4>Место</h4>
+            <p>Санкт-Петербург, п. Александровская (Пушкинский район), Волхонское ш., д. 7</p>
+            <p>
+              <a class="detail-link" href="https://yandex.ru/maps/-/CPUnfP15" target="_blank" rel="noopener">Шатёр в Пушкинском замке</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m6 l3">
+          <div class="detail-card">
+            <h4>Расписание</h4>
+            <ul class="detail-list">
+              <li><span class="time">15:00</span> Приветственный фуршет</li>
+              <li><span class="time">16:00</span> Свадебная церемония</li>
+              <li><span class="time">17:00</span> Начало банкета</li>
+              <li><span class="time">21:00</span> Торжественное прощание</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col s12 m6 l3">
+          <div class="detail-card">
+            <h4>Дресс-код</h4>
+            <p>Пожалуйста, выберите наряд в спокойной палитре. Белый оставим невесте 🤍</p>
+            <p>Выбирайте стиль по вашему комфорту</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6 l3">
+          <div class="detail-card">
+            <h4>Про подарки</h4>
+            <p>Самый лучший подарок — ваше присутствие и тёплое настроение. Если хочется порадовать нас, будем благодарны вкладу в семейный бюджет.</p>
+            <p class="muted">Цветы можно не дарить — мы не успеем ими насладиться.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="parallax-container">
+    <div class="parallax">
+      <img
+        src="images/ChatGPT Image 15 февр. 2026 г., 16_08_08.png"
+        alt="Фон"
+      >
+    </div>
+
+    <div class="row container center-align rsvp" id="rsvp">
+      <header class="col s12">
+        <h1>Мы надеемся, что вы будете с нами...</h1>
+        <h5>Пожалуйста, подтвердите присутствие до мая</h5>
+      </header>
+
+      <div class="col s12 m8 offset-m2">
+        <form id="rsvp-form" class="rsvp-form">
+
+          <!-- Имя -->
+          <div class="input-field">
+            <input id="guest-name" type="text" required>
+            <label for="guest-name">Ваше имя</label>
+          </div>
+
+          <!-- Смогу / не смогу -->
+          <p class="form-title">Вы придёте?</p>
+
+          <p>
+            <input name="attendance" type="radio" id="att-yes" value="yes" required />
+            <label for="att-yes">Смогу прийти 🤍</label>
+          </p>
+
+          <p>
+            <input name="attendance" type="radio" id="att-no" value="no" />
+            <label for="att-no">К сожалению, не смогу</label>
+          </p>
+
+          <!-- Пара -->
+          <div id="plusone-block">
+            <div class="input-field">
+              <input id="plus-one" type="text">
+              <label for="plus-one">Приду с парой (укажите имена)</label>
+            </div>
+          </div>
+
+          <!-- Напитки -->
+          <div id="drinks-block">
+            <p class="form-title">Что предпочитаете пить?</p>
+
+            <p>
+              <input type="checkbox" id="drink-wine" name="drink" value="wine" />
+              <label for="drink-wine">Вино</label>
+            </p>
+
+            <p>
+              <input type="checkbox" id="drink-champagne" name="drink" value="champagne" />
+              <label for="drink-champagne">Шампанское</label>
+            </p>
+
+            <p>
+              <input type="checkbox" id="drink-whiskey" name="drink" value="whiskey" />
+              <label for="drink-whiskey">Виски</label>
+            </p>
+
+            <p>
+              <input type="checkbox" id="drink-vodka" name="drink" value="vodka" />
+              <label for="drink-vodka">Водка</label>
+            </p>
+
+            <p>
+              <input type="checkbox" id="drink-no-alcohol" name="drink" value="no-alcohol" />
+              <label for="drink-no-alcohol">Без алкоголя</label>
+            </p>
+          </div>
+
+          <div class="center-align" style="margin-top: 30px;">
+            <button class="btn-large waves-effect waves-light white black-text" type="submit">
+              Отправить
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
