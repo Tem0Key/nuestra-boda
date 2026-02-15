@@ -5,57 +5,66 @@ $(function () {
 
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5fpw6247X95XIrv0MhTlXR3Sqy-eqc0EyoxWZ1nIr8KA3FEJ1sbv3sIAyJ87_GAGr/exec"; // .../exec
 
-$("#rsvp-form").on("submit", function (e) {
-  e.preventDefault();
+  // Alerts i18n (по lang страницы)
+  const pageLang = (document.documentElement.getAttribute("lang") || "ru").toLowerCase();
+  const ALERTS = {
+    ru: {
+      ok: "Спасибо! Ответ отправлен 🤍",
+      fail: "Не получилось отправить. Попробуйте ещё раз 🙏"
+    },
+    es: {
+      ok: "¡Gracias! Tu respuesta ha sido enviada 🤍",
+      fail: "No se pudo enviar. Por favor, inténtalo de nuevo 🙏"
+    }
+  };
+  const MSG = ALERTS[pageLang] || ALERTS.ru;
 
-  const name = ($("#guest-name").val() || "").trim();
-  const attendance = $('input[name="attendance"]:checked').val() || "";
-  const plusOne = ($("#plus-one").val() || "").trim();
+  $("#rsvp-form").on("submit", function (e) {
+    e.preventDefault();
 
-  // собираем напитки
-  const drinks = [];
-  $('input[name="drink"]:checked').each(function () {
-    drinks.push($(this).val());
+    const name = ($("#guest-name").val() || "").trim();
+    const attendance = $('input[name="attendance"]:checked').val() || "";
+    const plusOne = ($("#plus-one").val() || "").trim();
+
+    // drinks
+    const drinks = [];
+    $('input[name="drink"]:checked').each(function () {
+      drinks.push($(this).val());
+    });
+
+    const payload = new URLSearchParams();
+    payload.append("name", name);
+    payload.append("attendance", attendance);
+    payload.append("plusOne", plusOne);
+    drinks.forEach(d => payload.append("drink", d));
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: payload
+    })
+      .then(() => {
+        alert(MSG.ok);
+        $("#rsvp-form")[0].reset();
+        if (typeof toggleRsvpExtras === "function") toggleRsvpExtras();
+      })
+      .catch(() => {
+        alert(MSG.fail);
+      });
   });
 
-  // если не сможет — можно отправлять только имя+attendance
-  const payload = new URLSearchParams();
-  payload.append("name", name);
-  payload.append("attendance", attendance);
-  payload.append("plusOne", plusOne);
-  drinks.forEach(d => payload.append("drink", d));
+  function toggleRsvpExtras() {
+    const no = $("#att-no").is(":checked");
+    $("#plusone-block, #drinks-block").toggleClass("is-hidden", no);
 
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    body: payload
-  })
-  .then(() => {
-    alert("Спасибо! Ответ отправлен 🤍");
-    $("#rsvp-form")[0].reset();
-    // чтобы снова показались/скрылись блоки по твоей логике
-    if (typeof toggleRsvpExtras === "function") toggleRsvpExtras();
-  })
-  .catch(() => {
-    alert("Не получилось отправить. Попробуйте ещё раз 🙏");
-  });
-});
-    
-    function toggleRsvpExtras() {
-  const no = $("#att-no").is(":checked");
-  $("#plusone-block, #drinks-block").toggleClass("is-hidden", no);
-
-  // если скрыли — очистим значения
-  if (no) {
-    $("#plus-one").val("");
-    $("#drinks-block input[type='checkbox']").prop("checked", false);
+    if (no) {
+      $("#plus-one").val("");
+      $("#drinks-block input[type='checkbox']").prop("checked", false);
+    }
   }
-}
 
-// при загрузке и при смене выбора
-toggleRsvpExtras();
-$(document).on("change", "input[name='attendance']", toggleRsvpExtras);
-
+  toggleRsvpExtras();
+  $(document).on("change", "input[name='attendance']", toggleRsvpExtras);
 
   // NAV: transparent -> glass on scroll
   const $nav = $("nav");

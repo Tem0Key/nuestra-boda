@@ -296,3 +296,15 @@ nav ul li a {
   display: none !important;
 }
 
+/* --- Language switch links --- */
+.lang-nav .lang-link {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.lang-nav .lang-link.is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
