@@ -19,14 +19,30 @@ $(function () {
   };
   const MSG = ALERTS[pageLang] || ALERTS.ru;
 
+    let isSubmitting = false;
+
   $("#rsvp-form").on("submit", function (e) {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    const $form = $(this);
+    const $btn = $form.find('button[type="submit"]');
+    const originalBtnHtml = $btn.html();
+
+    // UI: мгновенная реакция
+    isSubmitting = true;
+    $btn.addClass("is-loading").prop("disabled", true);
+    $btn.html(`<span class="btn-spinner"></span>${pageLang === "es" ? "Enviando..." : "Отправляем..."}`);
+
+    // (не обязательно) можно показать ненавязчивое сообщение вместо alert
+    if (window.M && typeof M.toast === "function") {
+      M.toast({ html: pageLang === "es" ? "Enviando..." : "Отправляем...", displayLength: 2000 });
+    }
 
     const name = ($("#guest-name").val() || "").trim();
     const attendance = $('input[name="attendance"]:checked').val() || "";
     const plusOne = ($("#plus-one").val() || "").trim();
 
-    // drinks
     const drinks = [];
     $('input[name="drink"]:checked').each(function () {
       drinks.push($(this).val());
@@ -44,14 +60,32 @@ $(function () {
       body: payload
     })
       .then(() => {
-        alert(MSG.ok);
-        $("#rsvp-form")[0].reset();
+        // успех
+        if (window.M && typeof M.toast === "function") {
+          M.toast({ html: MSG.ok, displayLength: 3500 });
+        } else {
+          alert(MSG.ok);
+        }
+
+        $form[0].reset();
         if (typeof toggleRsvpExtras === "function") toggleRsvpExtras();
       })
       .catch(() => {
-        alert(MSG.fail);
+        // ошибка
+        if (window.M && typeof M.toast === "function") {
+          M.toast({ html: MSG.fail, displayLength: 4000 });
+        } else {
+          alert(MSG.fail);
+        }
+      })
+      .finally(() => {
+        // вернуть кнопку
+        isSubmitting = false;
+        $btn.removeClass("is-loading").prop("disabled", false);
+        $btn.html(originalBtnHtml);
       });
   });
+
 
   function toggleRsvpExtras() {
     const no = $("#att-no").is(":checked");
