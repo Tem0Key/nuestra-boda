@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Invitation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="phone-frame">
+      <div class="bg-blobs" aria-hidden="true"></div>
+
+      <header class="topbar" aria-label="Top navigation">
+        <div class="pill brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="brand-text" id="brandNames">Marilaura &amp; Artyom</span>
+        </div>
+
+        <div class="pill lang" aria-label="Language">
+          <button id="btnES" class="lang-btn is-active" type="button">ES</button>
+          <button id="btnRU" class="lang-btn" type="button">RU</button>
+          <button id="btnEN" class="lang-btn" type="button">EN</button>
+        </div>
+      </header>
+
+      <main id="app">
+        <!-- INTRO (HEART ONLY) -->
+        <section id="intro" class="intro is-active" aria-label="Intro">
+          <div id="particles" class="particles" aria-hidden="true"></div>
+
+          <button id="heartBtn" class="heartBtn" type="button" aria-label="Open invitation">
+            <div class="heartWrap">
+              <svg class="heartSvg" viewBox="0 0 512 512" role="img" aria-label="M & A">
+                <defs>
+                  <radialGradient id="heartFill" cx="35%" cy="28%" r="80%">
+                    <stop offset="0%" stop-color="#b0122a" />
+                    <stop offset="55%" stop-color="#7f0b1e" />
+                    <stop offset="100%" stop-color="#5a0614" />
+                  </radialGradient>
+
+                  <radialGradient id="heartGloss" cx="28%" cy="22%" r="55%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.55)" />
+                    <stop offset="45%" stop-color="rgba(255,255,255,0.12)" />
+                    <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                  </radialGradient>
+
+                  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur" />
+                    <feOffset dx="0" dy="18" result="off" />
+                    <feColorMatrix
+                      in="off"
+                      type="matrix"
+                      values="
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 .22 0"
+                      result="shadow"
+                    />
+                    <feMerge>
+                      <feMergeNode in="shadow" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  <filter id="innerBevel" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+                    <feOffset dx="0" dy="2" result="off" />
+                    <feComposite in="off" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="inner" />
+                    <feColorMatrix
+                      in="inner"
+                      type="matrix"
+                      values="
+                        1 0 0 0 1
+                        0 1 0 0 1
+                        0 0 1 0 1
+                        0 0 0 .18 0"
+                      result="innerColor"
+                    />
+                    <feMerge>
+                      <feMergeNode in="SourceGraphic" />
+                      <feMergeNode in="innerColor" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <path
+                  filter="url(#softShadow)"
+                  d="M256 468s-150-86-204-176C15 227 30 138 96 104c55-29 118-7 160 40
+                     42-47 105-69 160-40 66 34 81 123 44 188-54 90-204 176-204 176z"
+                  fill="url(#heartFill)"
+                />
+
+                <path
+                  d="M256 468s-150-86-204-176C15 227 30 138 96 104c55-29 118-7 160 40
+                     42-47 105-69 160-40 66 34 81 123 44 188-54 90-204 176-204 176z"
+                  fill="url(#heartGloss)"
+                  opacity="0.85"
+                />
+
+                <path
+                  filter="url(#innerBevel)"
+                  d="M256 468s-150-86-204-176C15 227 30 138 96 104c55-29 118-7 160 40
+                     42-47 105-69 160-40 66 34 81 123 44 188-54 90-204 176-204 176z"
+                  fill="rgba(255,255,255,0.02)"
+                />
+
+                <text x="256" y="310" text-anchor="middle" class="heartText">M &amp; A</text>
+              </svg>
+            </div>
+          </button>
+        </section>
+
+        <!-- HERO PAGE -->
+        <section id="content" class="content">
+          <section class="hero" aria-label="Hero">
+            <img src="hero.png" alt="" class="hero-bg" aria-hidden="true" />
+
+            <div class="hero-center">
+              <div class="hero-kicker" id="heroTitle">¡Nos casamos!</div>
+              <div class="hero-names" id="heroNames">MARILAURA &amp; ARTYOM</div>
+              <div class="hero-date" id="heroDate">18.07.2026</div>
+
+              <div class="hero-actions">
+                <button id="scrollBtn" class="btn solid" type="button">Ver detalles</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" aria-label="Invitation content">
+            <div class="section" id="dear">
+              <h2 class="section-title" id="dearTitle">Queridos amigos,</h2>
+              <p class="section-body" id="dearBody">
+                Con muchísima ilusión queremos invitarles a celebrar con nosotros uno de los días más especiales de nuestras vidas.
+              </p>
+            </div>
+
+            <!-- DETAILS -->
+            <div class="section" id="details">
+              <h2 class="section-title" id="detailsTitle">Detalles</h2>
+
+              <div class="detail-grid">
+                <div class="detail-card">
+                  <div class="detail-head">
+                    <div class="detail-title" id="placeTitle">Lugar</div>
+                  </div>
+                  <p class="detail-text" id="placeAddr">San Petersburgo, поселок Александровская, Волхонское ш., д. 7</p>
+                  <a class="detail-link" id="placeLink" href="https://yandex.ru/maps/-/CPUnfP15" target="_blank" rel="noopener">Ver en el mapa</a>
+                </div>
+
+                <div class="detail-card">
+                  <div class="detail-head">
+                    <div class="detail-title" id="scheduleTitle">Programa</div>
+                  </div>
+                  <ul class="detail-list" id="scheduleList">
+                    <li><span class="time">15:00</span> <span id="sch1">Cóctel de bienvenida</span></li>
+                    <li><span class="time">16:00</span> <span id="sch2">Ceremonia</span></li>
+                    <li><span class="time">17:00</span> <span id="sch3">Banquete</span></li>
+                    <li><span class="time">21:00</span> <span id="sch4">Fin</span></li>
+                  </ul>
+                </div>
+
+                <div class="detail-card">
+                  <div class="detail-head">
+                    <div class="detail-title" id="dressTitle">Dress code</div>
+                  </div>
+                  <p class="detail-text" id="dressBody1">Por favor, elijan un look en una paleta tranquila. El blanco lo dejamos para la novia 🤍</p>
+                  <p class="detail-text" id="dressBody2">El estilo: como se sientan cómodos.</p>
+                </div>
+
+                <div class="detail-card">
+                  <div class="detail-head">
+                    <div class="detail-title" id="giftsTitle">Regalos</div>
+                  </div>
+                  <p class="detail-text" id="giftsBody">El mejor regalo es su presencia y buen ánimo. Si quieren apoyarnos, agradeceremos una contribución al presupuesto familiar.</p>
+                  <p class="detail-muted" id="giftsNote">Flores no son necesarias — no tendremos tiempo para disfrutarlas.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RSVP -->
+            <div class="section" id="rsvp">
+              <h2 class="section-title" id="rsvpTitle">RSVP</h2>
+              <p class="section-body" id="rsvpSubtitle">Por favor, confirmen su asistencia antes de mayo.</p>
+
+              <form id="rsvpForm" class="form" novalidate>
+                <div class="field">
+                  <label class="label" for="guestName" id="nameLabel">Tu nombre</label>
+                  <input class="input" id="guestName" name="name" type="text" autocomplete="name" required />
+                </div>
+
+                <fieldset class="fieldset">
+                  <legend class="legend" id="attendLegend">¿Vendrás?</legend>
+                  <label class="choice">
+                    <input type="radio" name="attendance" value="yes" id="attYes" required />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="attYesText">Puedo ir 🤍</span>
+                  </label>
+
+                  <label class="choice">
+                    <input type="radio" name="attendance" value="no" id="attNo" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="attNoText">No podré</span>
+                  </label>
+                </fieldset>
+
+                <div id="plusOneBlock" class="field">
+                  <label class="label" for="plusOne" id="plusOneLabel">Vendré con pareja (nombres)</label>
+                  <input class="input" id="plusOne" name="plusOne" type="text" autocomplete="off" />
+                </div>
+
+                <div id="drinksBlock" class="fieldset">
+                  <div class="legend" id="drinksLegend">¿Qué prefieres beber?</div>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="wine" id="drinkWine" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="drinkWineText">Vino</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="champagne" id="drinkChampagne" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="drinkChampagneText">Champán</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="whiskey" id="drinkWhiskey" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="drinkWhiskeyText">Whisky</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="vodka" id="drinkVodka" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="drinkVodkaText">Vodka</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="no-alcohol" id="drinkNoAlcohol" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="drinkNoAlcoholText">Sin alcohol</span>
+                  </label>
+                </div>
+
+                <button id="rsvpSubmit" class="btn solid btn-full" type="submit">
+                  <span id="rsvpSubmitText">Enviar</span>
+                  <span class="spinner" aria-hidden="true"></span>
+                </button>
+
+                <p class="form-hint" id="rsvpHint">* Esto es solo una vista previa. Conectaremos Google Sheets después.</p>
+              </form>
+            </div>
+
+            <div style="height: 90px"></div>
+          </section>
+        </section>
+      </main>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+  <div class="toast-inner">
+    <span class="toast-icon" aria-hidden="true"></span>
+    <div class="toast-text" id="toastText"></div>
+    <button class="toast-close" id="toastClose" type="button" aria-label="Close">✕</button>
+    <div class="toast-bar" aria-hidden="true"></div>
+  </div>
+</div>  
+      
+  </body>
+</html>
