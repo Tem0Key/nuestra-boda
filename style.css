@@ -187,7 +187,9 @@ body{
   width:min(380px, 92vw);
   text-align:center;
   color:#fff;
-  padding: 96px 14px 70px;
+    /* было: padding: 110px 14px 70px; */
+  padding: 80px 14px 70px;
+  transform: translateY(-150px);
 }
 .hero-kicker{
   font-size: 12px;
