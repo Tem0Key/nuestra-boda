@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Invitation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="phone-frame">
+      <div class="bg-blobs" aria-hidden="true"></div>
+
+      <header class="topbar" aria-label="Top navigation">
+        <div class="pill lang" aria-label="Language">
+          <button id="btnES" class="lang-btn is-active" type="button">ES</button>
+          <button id="btnRU" class="lang-btn" type="button">RU</button>
+          <button id="btnEN" class="lang-btn" type="button">EN</button>
+        </div>
+      </header>
+
+      <main id="app">
+        <!-- INTRO -->
+        <section id="intro" class="intro is-active" aria-label="Intro">
+          <div id="particles" class="particles" aria-hidden="true"></div>
+
+          <button id="heartBtn" class="heartBtn" type="button" aria-label="Open invitation">
+            <div class="heartWrap">
+              <svg class="heartSvg" viewBox="0 0 512 512" role="img" aria-label="M & A">
+                <defs>
+                  <radialGradient id="heartFill" cx="35%" cy="28%" r="80%">
+                    <stop offset="0%" stop-color="#b0122a" />
+                    <stop offset="55%" stop-color="#7f0b1e" />
+                    <stop offset="100%" stop-color="#5a0614" />
+                  </radialGradient>
+
+                  <radialGradient id="heartGloss" cx="28%" cy="22%" r="55%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.55)" />
+                    <stop offset="45%" stop-color="rgba(255,255,255,0.12)" />
+                    <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                  </radialGradient>
+
+                  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur" />
+                    <feOffset dx="0" dy="18" result="off" />
+                    <feColorMatrix
+                      in="off"
+                      type="matrix"
+                      values="
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 .22 0"
+                      result="shadow"
+                    />
+                    <feMerge>
+                      <feMergeNode in="shadow" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  <filter id="innerBevel" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+                    <feOffset dx="0" dy="2" result="off" />
+                    <feComposite in="off" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="inner" />
+                    <feColorMatrix
+                      in="inner"
+                      type="matrix"
+                      values="
+                        1 0 0 0 1
+                        0 1 0 0 1
+                        0 0 1 0 1
+                        0 0 0 .18 0"
+                      result="innerColor"
+                    />
+                    <feMerge>
+                      <feMergeNode in="SourceGraphic" />
+                      <feMergeNode in="innerColor" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <path
+                  filter="url(#softShadow)"
+                  d="M256 468s-150-86-204-176C15 227 30 138 96 104c55-29 118-7 160 40
+                     42-47 105-69 160-40 66 34 81 123 44 188-54 90-204 176-204 176z"
+                  fill="url(#heartFill)"
+                />
+
+                <path
+                  d="M256 468s-150-86-204-176C15 227 30 138 96 104c55-29 118-7 160 40
+                     42-47 105-69 160-40 66 34 81 123 44 188-54 90-204 176-204 176z"
+                  fill="url(#heartGloss)"
+                  opacity="0.85"
+                />
+
+                <path
+                  filter="url(#innerBevel)"
+                  d="M256 468s-150-86-204-176C15 227 30 138 96 104c55-29 118-7 160 40
+                     42-47 105-69 160-40 66 34 81 123 44 188-54 90-204 176-204 176z"
+                  fill="rgba(255,255,255,0.02)"
+                />
+
+                <text x="256" y="310" text-anchor="middle" class="heartText">M &amp; A</text>
+              </svg>
+            </div>
+          </button>
+        </section>
+
+        <!-- HERO PAGE -->
+        <section id="content" class="content">
+          <section class="hero" aria-label="Hero">
+            <img src="hero.png" alt="" class="hero-bg" aria-hidden="true" />
+            <div class="hero-center">
+              <div class="hero-kicker" id="heroTitle">¡Nos casamos!</div>
+              <div class="hero-names" id="heroNames">MARILAURA &amp; ARTYOM</div>
+              <div class="hero-date" id="heroDate">18.07.2026</div>
+            </div>
+          </section>
+
+          <section class="page" aria-label="Invitation content">
+            <div class="section" id="dear">
+              <h2 class="section-title" id="dearTitle">Queridos amigos,</h2>
+              <p class="section-body" id="dearBody">
+                Con muchísima ilusión queremos invitarles a celebrar con nosotros uno de los días más especiales de nuestras vidas.
+              </p>
+              <p class="detail-muted" id="dearPersonal"></p>
+            </div>
+
+            <!-- PROGRAM (ROOMIER + HEART MARKERS) -->
+            <div class="section" id="schedule">
+              <h2 class="section-title" id="scheduleTitle">Programa</h2>
+
+              <div class="program" aria-label="Wedding program">
+                <!-- ITEM 1 -->
+                <div class="program-item">
+                  <div class="program-time">
+                    <span class="program-timeText" id="t1time">15:00</span>
+                  </div>
+
+                  <div class="program-dot is-heart" aria-hidden="true">
+                    <svg class="program-heart" viewBox="0 0 24 24" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="program-text">
+                    <div class="program-title" id="sch1">CÓCTEL</div>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="program-item">
+                  <div class="program-time">
+                    <span class="program-timeText" id="t2time">15:30</span>
+                  </div>
+
+                  <div class="program-dot is-heart" aria-hidden="true">
+                    <svg class="program-heart" viewBox="0 0 24 24" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="program-text">
+                    <div class="program-title" id="sch2">REGISTRO OFICIAL</div>
+                </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="program-item">
+                  <div class="program-time">
+                    <span class="program-timeText" id="t3time">16:00</span>
+                  </div>
+
+                  <div class="program-dot is-heart" aria-hidden="true">
+                    <svg class="program-heart" viewBox="0 0 24 24" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="program-text">
+                    <div class="program-title" id="sch3">INICIO DEL BANQUETE</div>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="program-item">
+                  <div class="program-time">
+                    <span class="program-timeText" id="t4time">20:30</span>
+                  </div>
+
+                  <div class="program-dot is-heart" aria-hidden="true">
+                    <svg class="program-heart" viewBox="0 0 24 24" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="program-text">
+                    <div class="program-title" id="sch4">FIN DE LA CENA</div>
+                    <div class="program-note" id="sch4Note">esperamos que esta noche sea inolvidable y no olviden organizar sus transferes de vuelta a casa </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <!-- STYLE + GIFTS + PLACE (ONE SECTION / ONE SLIDE) -->
+<!-- ========================= -->
+<!-- SLIDE 1: DRESS + GIFTS   -->
+<!-- ========================= -->
+<div class="section snap-slide" id="slideStyleGifts">
+
+  <!-- DRESS -->
+  <div class="stack-card" id="dress">
+    <h2 class="section-title" id="dressTitle">Dress code</h2>
+
+    <img src="dress-code.png"
+         alt=""
+         class="dress-code"
+         aria-hidden="true" />
+
+    <p class="section-body" id="dressBody1">
+      Por favor, elijan un look en una paleta tranquila.
+      El blanco lo dejamos para la novia 🤍
+    </p>
+
+    <p class="section-body" id="dressBody2">
+      El estilo: como se sientan cómodos.
+    </p>
+  </div>
+
+  <!-- GIFTS -->
+  <div class="stack-card" id="gifts">
+    <h2 class="section-title" id="giftsTitle">Regalos</h2>
+
+    <p class="section-body" id="giftsBody">
+      El mejor regalo es su presencia y buen ánimo.
+      Si quieren apoyarnos, agradeceremos una contribución
+      al presupuesto familiar.
+    </p>
+
+    <p class="detail-muted" id="giftsNote">
+      Flores no son necesarias — no tendremos tiempo para disfrutarlas.
+    </p>
+  </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- SLIDE 2: PLACE + RSVP    -->
+<!-- ========================= -->
+<div class="section snap-slide" id="slidePlaceRsvp">
+
+  <!-- PLACE -->
+  <div class="stack-card" id="place">
+    <h2 class="section-title" id="placeTitle">Lugar</h2>
+
+    <p class="section-body" id="placeAddr">
+      San Petersburgo, поселок Александровская,
+      Волхонское ш., д. 7
+    </p>
+
+    <p class="section-body place-description" id="placeDescription">
+          </p>
+
+    <a class="map-card"
+       id="placeLink"
+       href="https://yandex.ru/maps/-/CPUnfP15"
+       target="_blank"
+       rel="noopener">
+      <div class="map-card__top">
+        <div class="map-card__title">Ver en el mapa</div>
+        <div class="map-card__hint">Yandex Maps</div>
+      </div>
+      <div class="map-card__cta">Abrir →</div>
+    </a>
+  </div>
+    
+
+            <!-- RSVP -->
+
+            <div class="section" id="rsvp">
+              <h2 class="section-title" id="rsvpTitle">RSVP</h2>
+              <p class="section-body" id="rsvpSubtitle">Por favor, confirmen su asistencia antes de mayo.</p>
+
+              <form id="rsvpForm" class="form" novalidate>
+                <div class="line-field">
+                  <input id="guestName" name="name" type="text" placeholder=" " autocomplete="name" required />
+                  <label for="guestName" id="nameLabel">Tu nombre</label>
+                </div>
+
+                <fieldset class="fieldset">
+                  <legend class="legend" id="attendLegend">¿Vendrás?</legend>
+
+                  <label class="choice">
+                    <input type="radio" name="attendance" value="yes" id="attYes" required />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="attYesText">Puedo ir 🤍</span>
+                  </label>
+
+                  <label class="choice">
+                      
+                    <input type="radio" name="attendance" value="Maybe" id="attMaybe" required />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="attMayBeText">Puede ser</span>
+                  </label>
+
+                  <label class="choice">
+                    <input type="radio" name="attendance" value="no" id="attNo" />
+                    <span class="mark" aria-hidden="true"></span>
+                    <span class="choice-text" id="attNoText">No podré</span>
+                  </label>
+                </fieldset>
+
+                <div id="drinksBlock" class="fieldset">
+                  <div class="legend" id="drinksLegend">¿Qué prefieres beber?</div>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="wine" id="drinkWine" />
+                    <span class="mark" aria-hidden="true">
+                      <svg class="checkSvg" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path class="checkPath" d="M4 10.5 L8.2 14.5 L16 6.5"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-text" id="drinkWineText">Vino</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="champagne" id="drinkChampagne" />
+                    <span class="mark" aria-hidden="true">
+                      <svg class="checkSvg" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path class="checkPath" d="M4 10.5 L8.2 14.5 L16 6.5"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-text" id="drinkChampagneText">Champán</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="whiskey" id="drinkWhiskey" />
+                    <span class="mark" aria-hidden="true">
+                      <svg class="checkSvg" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path class="checkPath" d="M4 10.5 L8.2 14.5 L16 6.5"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-text" id="drinkWhiskeyText">Whisky</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="vodka" id="drinkVodka" />
+                    <span class="mark" aria-hidden="true">
+                      <svg class="checkSvg" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path class="checkPath" d="M4 10.5 L8.2 14.5 L16 6.5"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-text" id="drinkVodkaText">Vodka</span>
+                  </label>
+
+                  <label class="choice is-check">
+                    <input type="checkbox" name="drinks" value="no-alcohol" id="drinkNoAlcohol" />
+                    <span class="mark" aria-hidden="true">
+                      <svg class="checkSvg" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path class="checkPath" d="M4 10.5 L8.2 14.5 L16 6.5"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-text" id="drinkNoAlcoholText">Sin alcohol</span>
+                  </label>
+                </div>
+
+                <div id="plusOneBlock" class="line-field">
+                  <input id="plusOne" name="plusOne" type="text" placeholder=" " autocomplete="off" />
+                  <label for="plusOne" id="plusOneLabel">Alergia y etc</label>
+                </div>
+
+                <button id="rsvpSubmit" class="map-card" type="submit">
+                  <span id="rsvpSubmitText">Enviar</span>
+                  <span class="spinner" aria-hidden="true"></span>
+                </button>
+              </form>
+            </div>
+
+            <div style="height: 90px"></div>
+          </section>
+        </section>
+      </main>
+
+      <!-- IMPORTANT: Keep only ONE toast with id="toast" -->
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
