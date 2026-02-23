@@ -970,3 +970,58 @@ body{
   letter-spacing: .22em;
   text-transform: uppercase;
 }
+
+
+/* ============================= */
+/* FLOAT STEP SCROLL BUTTON      */
+/* locked to .phone-frame        */
+/* ============================= */
+
+.scroll-next-wrap{
+  position: fixed;       /* важно: фиксируем на экране */
+  z-index: 80;
+  pointer-events: none;  /* не блокирует скролл */
+  left: 0; top: 0;       /* JS выставит реальные координаты рамки */
+  width: 0; height: 0;   /* JS выставит реальные размеры рамки */
+}
+
+.scroll-next{
+  position: absolute;    /* позиционируем внутри wrap, как внутри frame */
+  right: 18px;
+  bottom: 18px;
+
+  pointer-events: auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,.45);
+  background: rgba(255,255,255,.25);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .25s cubic-bezier(.22,1,.36,1);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+
+/* visibility only (do NOT change pointer-events here) */
+.scroll-next-wrap{
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none; /* always none, so it never blocks scrolling */
+}
+
+.scroll-next-wrap.is-visible{
+  opacity: 1;
+}
+
+/* button itself stays clickable */
+.scroll-next{
+  pointer-events: auto;
+}
+
+.scroll-next:hover{ transform: scale(1.08); }
+.scroll-next:active{ transform: scale(.95); }
