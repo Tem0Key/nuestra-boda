@@ -53,6 +53,16 @@ body{
     radial-gradient(circle at 70% 45%, rgba(224,143,130,0.08), transparent 62%),
     radial-gradient(circle at 45% 92%, rgba(0,0,0,0.04), transparent 65%);
   z-index:0;
+
+  /* motion */
+  animation: blobsMove 14s ease-in-out infinite;
+  transform-origin: center;
+  opacity: .95;
+}
+@keyframes blobsMove{
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(-14px, 10px, 0) scale(1.03); }
+  100% { transform: translate3d(0,0,0) scale(1); }
 }
 
 /* ============================= */
@@ -177,25 +187,6 @@ body{
 .content.is-visible{ display:block; animation: fadeIn .65s ease both; }
 @keyframes fadeIn{ from{opacity:0; transform: translateY(14px);} to{opacity:1; transform: translateY(0);} }
 
-/* Elegant transitions (no JS needed) */
-@keyframes sectionIn{
-  from{ opacity:0; transform: translateY(16px); filter: blur(10px); }
-  to{ opacity:1; transform: translateY(0); filter: blur(0); }
-}
-.content.is-visible .section{
-  animation: sectionIn .85s cubic-bezier(.22,1,.36,1) both;
-}
-.content.is-visible .section:nth-of-type(1){ animation-delay: .04s; }
-.content.is-visible .section:nth-of-type(2){ animation-delay: .10s; }
-.content.is-visible .section:nth-of-type(3){ animation-delay: .16s; }
-.content.is-visible .section:nth-of-type(4){ animation-delay: .22s; }
-.content.is-visible .section:nth-of-type(5){ animation-delay: .28s; }
-.content.is-visible .section:nth-of-type(6){ animation-delay: .34s; }
-
-@media (prefers-reduced-motion: reduce){
-  .content.is-visible .section{ animation:none !important; }
-}
-
 /* ============================= */
 /* HERO                           */
 /* ============================= */
@@ -318,7 +309,6 @@ body{
 /* PAGE / TYPO SYSTEM             */
 /* ============================= */
 
-/* freeze background for content (prevents bands) */
 .page{
   position: relative;
   z-index: 1;
@@ -326,19 +316,17 @@ body{
   padding: 26px 16px 64px;
 }
 
-/* BASE: sections are NOT cards by default (minimal) */
 .section{
   background: transparent;
   border: 0;
   box-shadow: none;
   border-radius: 0;
   padding: 0;
-  margin-top: 54px;        /* more air between sections */
-  padding-bottom: 34px;    /* space for divider */
+  margin-top: 54px;
+  padding-bottom: 34px;
   position: relative;
 }
 
-/* Minimal separators between sections */
 .section::after{
   content:"";
   position:absolute;
@@ -350,11 +338,9 @@ body{
   background: rgba(0,0,0,.10);
 }
 
-/* Do not add divider to “cards” (they already look separated) */
 #dear.section::after,
 #rsvp.section::after{ display:none; }
 
-/* Titles & body consistent */
 .section-title{
   font-family: var(--serif);
   text-transform: uppercase;
@@ -371,10 +357,8 @@ body{
   line-height:1.75;
   color: rgba(0,0,0,.70);
   text-align: center;
-  
 }
 
-/* muted */
 .detail-muted{
   margin: 12px 0 0;
   font-size: 12px;
@@ -396,15 +380,14 @@ body{
   box-shadow: 0 10px 30px rgba(0,0,0,.03);
 }
 
-/* In cards, align left for readability */
 #dear .section-title,
 #rsvp .section-title{
-  text-align: left;
+  text-align: center;
   letter-spacing: 5px;
 }
 
 /* ============================= */
-/* SCHEDULE — roomier + heart     */
+/* SCHEDULE                       */
 /* ============================= */
 
 #schedule.section{
@@ -412,7 +395,6 @@ body{
   padding-bottom: 40px;
 }
 
-/* Make “PROGRAMA” stand out */
 #schedule .section-title{
   font-size: 24px;
   letter-spacing: 14px;
@@ -429,17 +411,15 @@ body{
   background: rgba(224,143,130,.55);
 }
 
-/* container */
 #schedule .program{
   position: relative;
   display: grid;
-  gap: 54px;              /* more breathing room */
+  gap: 54px;
   padding: 10px 0 18px;
   justify-items: center;
   text-align: center;
 }
 
-/* single center line — visible but elegant */
 #schedule .program::before{
   content:"";
   position:absolute;
@@ -457,7 +437,6 @@ body{
   z-index: 0;
 }
 
-/* item stack */
 #schedule .program-item{
   position: relative;
   z-index: 1;
@@ -467,7 +446,6 @@ body{
   padding: 0 14px;
 }
 
-/* “paper gap” behind each item (cuts line behind time + text) */
 #schedule .program-item::before{
   content:"";
   position:absolute;
@@ -481,17 +459,12 @@ body{
   z-index: 0;
 }
 
-/* content above the gap */
 #schedule .program-time,
 #schedule .program-dot,
 #schedule .program-text{
   position: relative;
   z-index: 1;
 }
-
-/* ============================= */
-/* HEART MARKER — FIXED (COMPLETE) */
-/* ============================= */
 
 #schedule .program-dot.is-heart{
   width: 24px;
@@ -500,13 +473,8 @@ body{
   place-items: center;
   background: var(--bg);
   border-radius: 999px;
-
-  /* cuts the vertical line behind */
   box-shadow: 0 0 0 12px var(--bg);
-
-  /* slight breathing space so stroke never looks clipped */
   padding: 2px;
-
   margin: 10px 0 6px;
 }
 
@@ -519,7 +487,7 @@ body{
 }
 
 #schedule .program-heart path{
-  fill: rgba(224,143,130,.10);  /* subtle fill = looks “whole” */
+  fill: rgba(224,143,130,.10);
   stroke: rgba(224,143,130,.88);
   stroke-width: 1.85;
   stroke-linejoin: round;
@@ -535,10 +503,6 @@ body{
   transition: transform .22s cubic-bezier(.22,1,.36,1);
 }
 
-.phone-frame{ scroll-snap-type: y proximity; }
-.page > .section{ scroll-snap-align: start; }
-
-/* label */
 #schedule .program-title{
   font-family: var(--sans);
   text-transform: uppercase;
@@ -549,7 +513,6 @@ body{
   margin: 0;
 }
 
-/* note (subtle) */
 #schedule .program-note{
   margin: 0;
   font-size: 11px;
@@ -558,23 +521,16 @@ body{
   max-width: 40ch;
 }
 
-/* Optional: hide notes on very small screens to reduce “clutter” */
 @media (max-width: 380px){
   #schedule .program-note{ display:none; }
-}
-
-/* mobile tweaks */
-@media (max-width: 380px){
   #schedule .section-title{ letter-spacing: 12px; font-size: 22px; }
   #schedule .program-timeText{ font-size: 44px; }
   #schedule .program-item::before{ width: 94%; }
 }
 
 /* ============================= */
-/* DRESS CODE (NO CARD)           */
+/* DRESS / GIFTS / PLACE          */
 /* ============================= */
-
-#dress .section-title{ margin-bottom: 16px; }
 
 .dress-code{
   width: 100%;
@@ -587,27 +543,15 @@ body{
   box-shadow: none;
 }
 
-/* a little spacing after image */
-#dress .section-body{ margin-top: 12px; }
-
-/* ============================= */
-/* GIFTS (NO CARD)                */
-/* ============================= */
-
 #gifts .detail-muted{
   margin-top: 12px;
 }
-
-/* ============================= */
-/* PLACE / LOCATION — framed like reference (no rounded card) */
-/* ============================= */
 
 #place.stack-card{
   border: 1px solid rgba(0,0,0,.22);
   padding: 22px 18px 30px;
 }
 #place .section-title{ margin-bottom: 10px; }
-
 #place #placeAddr{
   text-align: center;
   font-size: 13px;
@@ -620,7 +564,6 @@ body{
   text-align: center;
 }
 
-/* map link as a clean button (no inner card) */
 .map-card{
   display:flex;
   align-items:center;
@@ -646,9 +589,7 @@ body{
   border-color: rgba(0,0,0,.45);
 }
 
-/* hide old inner layout */
 .map-card__top{ display:none; }
-
 .map-card__cta{
   margin:0;
   font-weight: 700;
@@ -703,7 +644,6 @@ body{
   line-height: 1.3;
 }
 
-/* Radio dot */
 .choice:not(.is-check) input:checked + .mark::after{
   content:"";
   position:absolute;
@@ -712,7 +652,6 @@ body{
   background: var(--accent);
 }
 
-/* Checkbox mark + SVG draw */
 .choice.is-check .mark{
   position:relative;
   width:18px;
@@ -747,7 +686,6 @@ body{
 .choice.is-check input:checked + .mark .checkSvg{ opacity:1; }
 .choice.is-check input:checked + .mark .checkPath{ stroke-dashoffset: 0; }
 
-/* Floating line input */
 .line-field{
   position: relative;
   margin-top: 14px;
@@ -795,7 +733,6 @@ body{
 
 .form .fieldset + .fieldset{ margin-top: 18px; }
 
-/* Loading spinner */
 .spinner{
   width:16px;
   height:16px;
@@ -853,117 +790,29 @@ body{
   .hero-names{ font-size: 40px; }
 }
 
+#place::after { display: none !important; }
 
-
-#place::after {
-  display: none !important;
-}
-
-
-/* Make DRESS + GIFTS look like PLACE (framed block with padding) */
-#dress.section,
-#gifts.section{
-  border: 1px solid rgba(0,0,0,.22);
-  padding: 22px 18px 30px;
-}
-
-/* Remove the divider line under these (same idea as #place) */
-#dress.section::after,
-#gifts.section::after{
-  display: none;
-}
-
-/* Optional: keep the image nicely inside the framed section */
-#dress .dress-code{
-  margin-top: 10px;
-}
-
-/* Optional: match Place’s tighter spacing */
-#dress .section-title,
-#gifts .section-title{
-  margin-bottom: 10px;
-}
-
-/* ONE SLIDE that contains 3 framed blocks */
-#details.section::after{ display:none; } /* no divider for the wrapper */
-
-#details{
-  margin-top: 54px;       /* keep same spacing rhythm */
-  padding-bottom: 0;      /* divider removed, so no need */
-}
-
-/* the 3 inner blocks */
+/* cards stack */
 .stack-card{
   border: 1px solid rgba(0,0,0,.22);
   padding: 22px 18px 26px;
   background: transparent;
 }
+.stack-card + .stack-card{ margin-top: 18px; }
+.stack-card img{ width:100%; height:auto; display:block; }
 
-.stack-card + .stack-card{
-  margin-top: 18px; /* space between cards */
-}
-
-/* place card had special padding before — keep it slightly roomier if you like */
-#place.stack-card{
-  padding: 22px 18px 30px;
-}
-
-/* ================================= */
-/* SNAP ONLY ON REAL SLIDES         */
-/* ================================= */
-
-.page > .section {
-  scroll-snap-align: start;
-}
-
-/* remove old snap from inner sections if you had it */
-.section {
-  scroll-snap-align: none;
-}
-
-/* ================================= */
-/* TWO-CARD SNAP SLIDES             */
-/* ================================= */
-
-.snap-slide {
+.snap-slide{
   margin-top: 54px;
   padding: 22px 16px 26px;
 }
+.snap-slide::after{ display:none !important; }
 
-.snap-slide::after {
-  display: none !important; /* remove divider line */
-}
-
-/* framed card style */
-.stack-card {
-  border: 1px solid rgba(0,0,0,.22);
-  padding: 22px 18px 26px;
-  background: transparent;
-}
-
-/* space between cards */
-.stack-card + .stack-card {
-  margin-top: 18px;
-}
-
-/* images behave nicely */
-.stack-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ================================= */
-/* MAKE RSVP LOOK LIKE OTHER CARDS  */
-/* ================================= */
-
+/* RSVP look */
 #rsvp {
   background: transparent !important;
   border: 1px solid rgba(0,0,0,.22) !important;
   box-shadow: none !important;
 }
-
-/* RSVP text same typography as "Открыть карту" */
 #rsvpSubmit {
   font-weight: 700;
   font-size: 13px;
@@ -971,22 +820,24 @@ body{
   text-transform: uppercase;
 }
 
-
 /* ============================= */
 /* FLOAT STEP SCROLL BUTTON      */
-/* locked to .phone-frame        */
 /* ============================= */
 
 .scroll-next-wrap{
-  position: fixed;       /* важно: фиксируем на экране */
+  position: fixed;
   z-index: 80;
-  pointer-events: none;  /* не блокирует скролл */
-  left: 0; top: 0;       /* JS выставит реальные координаты рамки */
-  width: 0; height: 0;   /* JS выставит реальные размеры рамки */
+  pointer-events: none;
+  left: 0; top: 0;
+  width: 0; height: 0;
+
+  opacity: 0;
+  transition: opacity .4s ease;
 }
+.scroll-next-wrap.is-visible{ opacity: 1; }
 
 .scroll-next{
-  position: absolute;    /* позиционируем внутри wrap, как внутри frame */
+  position: absolute;
   right: 18px;
   bottom: 18px;
 
@@ -1006,22 +857,89 @@ body{
   transition: transform .25s cubic-bezier(.22,1,.36,1);
   box-shadow: 0 8px 24px rgba(0,0,0,.18);
 }
-
-/* visibility only (do NOT change pointer-events here) */
-.scroll-next-wrap{
-  opacity: 0;
-  transition: opacity .4s ease;
-  pointer-events: none; /* always none, so it never blocks scrolling */
-}
-
-.scroll-next-wrap.is-visible{
-  opacity: 1;
-}
-
-/* button itself stays clickable */
-.scroll-next{
-  pointer-events: auto;
-}
-
 .scroll-next:hover{ transform: scale(1.08); }
 .scroll-next:active{ transform: scale(.95); }
+
+/* pulse when visible */
+.scroll-next-wrap.is-visible .scroll-next{
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.06); }
+}
+
+/* ============================= */
+/* REVEAL ON SCROLL (SAFE)       */
+/* ONLY inside #content          */
+/* ============================= */
+
+#content .section,
+#content .hero{
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(10px);
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.22,1,.36,1),
+    filter .9s ease;
+  will-change: transform, opacity, filter;
+}
+
+#content .section.is-inview,
+#content .hero.is-inview{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* stagger on inner blocks */
+#content .section.is-inview .stack-card,
+#content .section.is-inview .program-item{
+  animation: popIn .7s cubic-bezier(.22,1,.36,1) both;
+}
+#content .section.is-inview .stack-card:nth-child(1),
+#content .section.is-inview .program-item:nth-child(1){ animation-delay: .05s; }
+#content .section.is-inview .stack-card:nth-child(2),
+#content .section.is-inview .program-item:nth-child(2){ animation-delay: .12s; }
+#content .section.is-inview .stack-card:nth-child(3),
+#content .section.is-inview .program-item:nth-child(3){ animation-delay: .19s; }
+#content .section.is-inview .program-item:nth-child(4){ animation-delay: .26s; }
+
+@keyframes popIn{
+  from{ opacity:0; transform: translateY(10px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* micro interactions */
+.stack-card,
+#rsvp.section,
+#dear.section{
+  transition: transform .25s cubic-bezier(.22,1,.36,1),
+              border-color .25s ease,
+              background .25s ease,
+              box-shadow .25s ease;
+  will-change: transform;
+}
+.stack-card:hover,
+#rsvp.section:hover,
+#dear.section:hover{
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,.30);
+  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+}
+.stack-card:active,
+#rsvp.section:active,
+#dear.section:active{
+  transform: translateY(0) scale(.995);
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
