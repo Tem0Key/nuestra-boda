@@ -943,3 +943,32 @@ body{
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ============================= */
+/* FIX: NO SE CORTAN SECCIONES   */
+/* Snap SOLO en .snap-slide      */
+/* ============================= */
+
+/* 1) El contenedor puede mantener snap, pero sin forzarlo en TODO */
+.phone-frame{
+  scroll-snap-type: y proximity;   /* suave, no agresivo */
+  scroll-padding-top: 86px;        /* compensa la topbar sticky */
+}
+
+/* 2) NO snappear secciones normales (como #schedule) */
+.page > .section{
+  scroll-snap-align: none !important;
+}
+
+/* 3) Snappear SOLO “slides” (las pantallas que tú definiste) */
+.page > .snap-slide{
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* 4) Extra: cuando haces scroll a una sección (o un foco), no queda “tapada” */
+.section,
+.snap-slide{
+  scroll-margin-top: 86px;
+}
