@@ -972,3 +972,37 @@ body{
 .snap-slide{
   scroll-margin-top: 86px;
 }
+
+
+/* ===================================== */
+/* FIX SNAP: NO HUECOS + NO SE CORTA     */
+/* Snap SOLO en .snap-slide y offset OK  */
+/* ===================================== */
+
+/* Ajusta el offset real (tu topbar es sticky top:14px + altura pill) */
+.phone-frame{
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 58px;   /* antes estaba demasiado alto */
+}
+
+/* NO snappear secciones normales (como schedule) */
+.page > .section{
+  scroll-snap-align: none !important;
+}
+
+/* Snap SOLO en slides */
+.page > .snap-slide{
+  scroll-snap-align: start;
+}
+
+/* Evita que el sticky tape el título al navegar/scroll */
+.section,
+.snap-slide{
+  scroll-margin-top: 58px;    /* mismo valor que arriba */
+}
+
+/* Quita el “aire” extra arriba cuando un slide cae en top */
+.snap-slide{
+  margin-top: 24px !important; /* antes 54px = se veía un bloque vacío */
+  padding-top: 16px !important;
+}
