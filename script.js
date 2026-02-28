@@ -31,7 +31,7 @@ const INVITE = (() => {
 
 // --- Groups config (easy to extend) ---
 const GROUPS = {
-  "1": {
+  "r1": {
     // Мама, Бабушка, Аня
     dearTitle: {
       es: "Queridas mamá, abuela y Nyusik",
@@ -50,7 +50,7 @@ const GROUPS = {
     },
   },
 
-  "2": {
+  "r2": {
     // Папа, Таня, Демид
     dearTitle: {
       es: "Queridos papá, Tanya y Demid",
@@ -69,7 +69,7 @@ const GROUPS = {
     },
   },
 
-  "3": {
+  "r3": {
     // Дима, Алёна
     dearTitle: {
       es: "Queridos Dima y Alena",
@@ -88,7 +88,7 @@ const GROUPS = {
     },
   },
 
-  "4": {
+  "r4": {
     dearTitle: {
       es: "Queridos Olya, Ilya y Masha",
       ru: "Дорогие Оля, Илья и Маша",
@@ -106,7 +106,7 @@ const GROUPS = {
     },
   },
 
-  "5": {
+  "r5": {
     dearTitle: {
       es: "Queridos Vasya y Anya",
       ru: "Дорогие Вася и Аня",
@@ -124,7 +124,7 @@ const GROUPS = {
     },
   },
 
-  "6": {
+  "r6": {
     dearTitle: {
       es: "Querida Yana",
       ru: "Дорогая Яна",
@@ -142,7 +142,7 @@ const GROUPS = {
     },
   },
 
-  "7": {
+  "r7": {
     dearTitle: {
       es: "Querido Danila",
       ru: "Дорогой Данила",
@@ -160,7 +160,7 @@ const GROUPS = {
     },
   },
 
-  "8": {
+  "r8": {
     dearTitle: {
       es: "Queridos Ksyusha y Denis",
       ru: "Дорогие Ксюша и Денис",
@@ -178,7 +178,7 @@ const GROUPS = {
     },
   },
 
-  "9": {
+  "r9": {
     dearTitle: {
       es: "Querido Pasha",
       ru: "Дорогой Паша",
@@ -196,7 +196,7 @@ const GROUPS = {
     },
   },
 
-  "10": {
+  "r10": {
     dearTitle: {
       es: "Querido Misha",
       ru: "Дорогой Миша",
@@ -214,7 +214,7 @@ const GROUPS = {
     },
   },
 
-  "11": {
+  "r11": {
     dearTitle: {
       es: "Querido Vadim",
       ru: "Дорогой Вадим",
@@ -229,6 +229,276 @@ const GROUPS = {
       es: "Vadim",
       ru: "Вадим",
       en: "Vadim",
+    },
+  },
+  "e12": {
+    // Mamá y Papá
+    dearTitle: {
+      es: "Mamá y Papá",
+      ru: "Mamá y Papá",
+      en: "Mamá y Papá",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Mamá, Papá",
+      ru: "Mamá, Papá",
+      en: "Mamá, Papá",
+    },
+  },
+  "e13": {
+    // Anjelica
+    dearTitle: {
+      es: "Anjelica",
+      ru: "Anjelica",
+      en: "Anjelica",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Anjelica",
+      ru: "Anjelica",
+      en: "Anjelica",
+    },
+  },
+  "e14": {
+    // Fabian y María José
+    dearTitle: {
+      es: "Fabian y María José",
+      ru: "Fabian y María José",
+      en: "Fabian y María José",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Fabian, María José",
+      ru: "Fabian, María José",
+      en: "Fabian, María José",
+    },
+  },
+  "e15": {
+    // Shantal
+    dearTitle: {
+      es: "Shantal",
+      ru: "Shantal",
+      en: "Shantal",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Shantal",
+      ru: "Shantal",
+      en: "Shantal",
+    },
+  },
+  "e16": {
+    // Mateo
+    dearTitle: {
+      es: "Mateo",
+      ru: "Mateo",
+      en: "Mateo",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Mateo",
+      ru: "Mateo",
+      en: "Mateo",
+    },
+  },
+  "e17": {
+    // Kim
+    dearTitle: {
+      es: "Kim",
+      ru: "Kim",
+      en: "Kim",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Kim",
+      ru: "Kim",
+      en: "Kim",
+    },
+  },
+  "e18": {
+    // Alex y Sebastián
+    dearTitle: {
+      es: "Alex y Sebastián",
+      ru: "Alex y Sebastián",
+      en: "Alex y Sebastián",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Alex, Sebastián",
+      ru: "Alex, Sebastián",
+      en: "Alex, Sebastián",
+    },
+  },
+  "e19": {
+    // Liuda y Alejó
+    dearTitle: {
+      es: "Liuda y Alejó",
+      ru: "Liuda y Alejó",
+      en: "Liuda y Alejó",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Liuda, Alejó",
+      ru: "Liuda, Alejó",
+      en: "Liuda, Alejó",
+    },
+  },
+  "e20": {
+    // Kianny
+    dearTitle: {
+      es: "Kianny",
+      ru: "Kianny",
+      en: "Kianny",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Kianny",
+      ru: "Kianny",
+      en: "Kianny",
+    },
+  },
+  "e21": {
+    // Yulia y Diego
+    dearTitle: {
+      es: "Юля y Diego",
+      ru: "Юля y Diego",
+      en: "Юля y Diego",
+    },
+    dearBody: {
+      es: "Queridos Yulia y Diego, ustedes son mucho más que amigos para nosotros. Han estado presentes en momentos importantes de nuestra vida, y su cariño y apoyo significan muchísimo. No podemos imaginar este día sin ustedes a nuestro lado. Gracias por ser parte de nuestra historia 🤍",
+      ru: "Дорогие Юля и Диего, вы для нас намного больше, чем просто друзья. Вы были рядом в важные моменты нашей жизни, и ваша поддержка и тепло значат для нас очень много. Мы не представляем этот день без вас. Спасибо, что вы — часть нашей истории 🤍",
+      en: "Dear Yulia and Diego, you are so much more than friends to us. You have been there for some of the most important moments in our lives, and your love and support mean the world to us. We truly cannot imagine this day without you by our side. Thank you for being part of our story 🤍",
+    },
+    guestNames: {
+      es: "Юля, Diego",
+      ru: "Юля, Diego",
+      en: "Юля, Diego",
+    },
+  },
+  "e22": {
+    // Berat y Nastya
+    dearTitle: {
+      es: "Berat y Настя",
+      ru: "Berat y Настя",
+      en: "Berat y Настя",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Berat, Настя",
+      ru: "Berat, Настя",
+      en: "Berat, Настя",
+    },
+  },
+  "en23": {
+    // Robert
+    dearTitle: {
+      es: "Robert",
+      ru: "Robert",
+      en: "Robert",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Robert",
+      ru: "Robert",
+      en: "Robert",
+    },
+  },
+  "e24": {
+    // Karen
+    dearTitle: {
+      es: "Karen",
+      ru: "Karen",
+      en: "Karen",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Karen",
+      ru: "Karen",
+      en: "Karen",
+    },
+  },
+  "r25": {
+    // Жанна
+    dearTitle: {
+      es: "Жанна",
+      ru: "Жанна",
+      en: "Жанна",
+    },
+    dearBody: {
+      es: "Tu energía, tu risa y tu manera de ver la vida siempre nos inspiran. Llevas luz y alegría allá donde vas, y no podemos imaginar esta celebración sin tu sonrisa brillante.",
+      ru: "Ваша энергия, смех и умение радоваться жизни всегда вдохновляют нас. Вы приносите свет и тепло в любое место, где появляетесь, и мы не представляем этот праздник без вашей сияющей улыбки.",
+      en: "Your energy, your laughter and the way you embrace life always inspire us. You bring light and joy wherever you go, and we truly cannot imagine this celebration without your radiant smile.",
+    },
+    guestNames: {
+      es: "Жанна",
+      ru: "Жанна",
+      en: "Жанна",
+    },
+  },
+  "r26": {
+    // Дядя Женя и тётя Катя
+    dearTitle: {
+      es: "Дядя Женя и тётя Катя",
+      ru: "Дядя Женя и тётя Катя",
+      en: "Дядя Женя и тётя Катя",
+    },
+    dearBody: {
+      es: "Gracias por su apoyo constante y por recibir a Laura en la familia con tanto cariño y calidez desde el primer momento. Para nosotros significa muchísimo sentir ese abrazo sincero y saber que siempre contamos con ustedes. No podemos imaginar este día sin su presencia y su corazón abierto",
+      ru: "Спасибо вам за вашу постоянную поддержку и за то, что вы приняли Лауру в семью с таким теплом и искренностью с самого первого момента. Для нас бесценно чувствовать это родное отношение и знать, что вы всегда рядом. Мы очень счастливы разделить этот день вместе с вами 🤍",
+      en: "Thank you for your constant support and for welcoming Laura into the family with such warmth and sincerity from the very beginning. It means so much to us to feel that genuine embrace and to know we can always count on you. We are truly happy to share this day with you 🤍",
+    },
+    guestNames: {
+      es: "Дядя Женя, тётя Катя",
+      ru: "Дядя Женя, тётя Катя",
+      en: "Дядя Женя, тётя Катя",
     },
   },
 }
@@ -807,7 +1077,7 @@ let scrollStep = 0
 const SCROLL_SEQUENCE = [
   { id: "schedule", align: "top" },
   { id: "dress", align: "top" },
-  { id: "rsvp", align: "top" },
+  { id: "gifts", align: "bottom" },
   { id: "rsvp", align: "bottom" }
 ]
 
