@@ -13,16 +13,7 @@ const SETTINGS = {
   heroNames: "MARILAURA & ARTYOM",
 }
 
-const params = new URLSearchParams(window.location.search)
-
-const groupParam = params.get("g")
-const langParam = params.get("lang")
-
-if (langParam && ["ru", "es", "en"].includes(langParam)) {
-  lang = langParam
-}
-
-// --- Invite group from URL: ?g=1 ---
+// --- Invite group from URL: ?g=... ---
 const INVITE = (() => {
   const p = new URLSearchParams(location.search)
   const groupId = (p.get("g") || "").trim()
@@ -32,477 +23,36 @@ const INVITE = (() => {
 // --- Groups config (easy to extend) ---
 const GROUPS = {
   "r1": {
-    // Мама, Бабушка, Аня
-    dearTitle: {
-      es: "Queridas mamá, abuela y Nyusik",
-      ru: "Дорогие Мама, бабушка и Аничка",
-      en: "Dear Mom, Grandma and Nyusik",
-    },
+    dearTitle: { es: "Queridas mamá, abuela y Nyusik", ru: "Дорогие Мама, бабушка и Аничка", en: "Dear Mom, Grandma and Nyusik" },
     dearBody: {
       es: "Ustedes son la base de nuestra familia, su corazón y sus raíces. Gracias por el amor, el cuidado y la fortaleza que nos han dado y siguen dando. Para nosotros es infinitamente importante que estén a nuestro lado en este día. Sin ustedes, esta celebración simplemente no sería la misma.",
       ru: "Вы — основа нашей семьи, её сердце и её корни. Спасибо вам за любовь, заботу и силу, которые вы дарили и продолжаете дарить. Нам бесконечно важно, что в этот день вы будете рядом с нами. Без вас этот праздник просто не был бы таким, каким мы его чувствуем.",
       en: "You are the foundation of our family — its heart and its roots. Thank you for the love, care, and strength you have given and continue to give. It means the world to us that you will be by our side on this day. Without you, this celebration simply would not feel the same.",
     },
-    guestNames: {
-      es: "Mamá, abuela y Nyusik",
-      ru: "Мама, Бабушка, Аня",
-      en: "Mom, Grandma and Nyusik",
-    },
+    guestNames: { es: "Mamá, abuela y Nyusik", ru: "Мама, Бабушка, Аня", en: "Mom, Grandma and Nyusik" },
   },
-
   "r2": {
-    // Папа, Таня, Демид
-    dearTitle: {
-      es: "Queridos papá, Tanya y Demid",
-      ru: "Дорогие Папа, Таня и Демид",
-      en: "Dear Dad, Tanya and Demid",
-    },
+    dearTitle: { es: "Queridos papá, Tanya y Demid", ru: "Дорогие Папа, Таня и Демид", en: "Dear Dad, Tanya and Demid" },
     dearBody: {
       es: "Gracias por su apoyo, atención y calidez. Para nosotros es muy valioso que estén con nosotros en este día tan importante. Seremos muy felices de compartir nuestra alegría con ustedes y crear juntos un recuerdo familiar más lleno de luz.",
       ru: "Спасибо вам за поддержку, внимание и тёплое отношение. Нам очень ценно, что вы будете рядом в этот важный для нас день. Мы будем счастливы разделить с вами нашу радость и создать вместе ещё одно светлое семейное воспоминание.",
       en: "Thank you for your support, care, and warmth. It means so much to us that you will be by our side on this important day. We will be truly happy to share our joy with you and create another bright family memory together.",
     },
-    guestNames: {
-      es: "Papá, Tanya y Demid",
-      ru: "Папа, Таня, Демид",
-      en: "Dad, Tanya and Demid",
-    },
+    guestNames: { es: "Papá, Tanya y Demid", ru: "Папа, Таня, Демид", en: "Dad, Tanya and Demid" },
   },
-
-  "r3": {
-    // Дима, Алёна
-    dearTitle: {
-      es: "Queridos Dima y Alena",
-      ru: "Дорогие Дима и Алёна",
-      en: "Dear Dima and Alena",
-    },
-    dearBody: {
-      es: "Nos hace especial ilusión invitarlos a compartir este día con nosotros. La sinceridad, el respeto y la calidez en la familia son un gran valor. Estaremos muy felices de verlos a nuestro lado y celebrar juntos el comienzo de una nueva etapa.",
-      ru: "Нам особенно приятно пригласить вас разделить с нами этот день. Искренность, уважение и тёплое отношение в семье — это огромная ценность. Будем очень рады видеть вас рядом и отпраздновать вместе начало нашей новой главы.",
-      en: "It means a great deal to us to invite you to share this day with us. Sincerity, respect, and warmth within a family are truly invaluable. We will be very happy to have you by our side as we celebrate the beginning of our new chapter together.",
-    },
-    guestNames: {
-      es: "Dima, Alena",
-      ru: "Дима, Алёна",
-      en: "Dima, Alena",
-    },
-  },
-
-  "r4": {
-    dearTitle: {
-      es: "Queridos Olya, Ilya y Masha",
-      ru: "Дорогие Оля, Илья и Маша",
-      en: "Dear Olya, Ilya and Masha",
-    },
-    dearBody: {
-      es: "En la vida son especialmente importantes las personas que apoyan de manera sincera e incondicional. Gracias por el cariño y la cercanía que siempre hemos sentido. Nos hará muy felices que compartan este día con nosotros.",
-      ru: "В жизни особенно важны люди, которые поддерживают безусловно и искренне. Спасибо вам за тепло, участие и любовь, которые всегда чувствовались. Нам будет очень радостно, если этот день вы проведёте вместе с нами.",
-      en: "In life, the most important people are those who support us sincerely and unconditionally. Thank you for the warmth and love we have always felt from you. It would bring us great joy to have you share this day with us.",
-    },
-    guestNames: {
-      es: "Olya, Ilya, Masha",
-      ru: "Оля, Илья, Маша",
-      en: "Olya, Ilya, Masha",
-    },
-  },
-
-  "r5": {
-    dearTitle: {
-      es: "Queridos Vasya y Anya",
-      ru: "Дорогие Вася и Аня",
-      en: "Dear Vasya and Anya",
-    },
-    dearBody: {
-      es: "La familia no es solo lazos de sangre, sino también respeto y apoyo mutuo. Nos alegra profundamente sentir esa conexión. Estaremos muy felices de tenerlos a nuestro lado y compartir con ustedes nuestra felicidad.",
-      ru: "Семья — это не только родство, но и взаимное уважение и поддержка. Нам очень приятно чувствовать эту связь. Будем счастливы видеть вас рядом в этот день и разделить с вами наше счастье.",
-      en: "Family is not only about blood ties, but also about mutual respect and support. We truly value this connection. We will be very happy to have you by our side and share our happiness with you.",
-    },
-    guestNames: {
-      es: "Vasya, Anya",
-      ru: "Вася, Аня",
-      en: "Vasya, Anya",
-    },
-  },
-
-  "r6": {
-    dearTitle: {
-      es: "Querida Yana",
-      ru: "Дорогая Яна",
-      en: "Dear Yana",
-    },
-    dearBody: {
-      es: "Aunque no nos veamos tan a menudo como quisiéramos, el vínculo cálido permanece. Para nosotros es importante que en este día estén cerca las personas que sinceramente se preocupan y apoyan. Estaremos encantados de celebrarlo juntos.",
-      ru: "Даже если мы видимся не так часто, как хотелось бы, тёплая связь остаётся. Нам важно, чтобы в этот день рядом были люди, которые искренне переживают и поддерживают. Будем очень рады провести этот праздник вместе.",
-      en: "Even if we do not see each other as often as we would like, the warm connection remains. It is important to us that on this day we are surrounded by people who truly care and support us. We would be very happy to celebrate together.",
-    },
-    guestNames: {
-      es: "Yana",
-      ru: "Яна",
-      en: "Yana",
-    },
-  },
-
-  "r7": {
-    dearTitle: {
-      es: "Querido Danila",
-      ru: "Дорогой Данила",
-      en: "Dear Danila",
-    },
-    dearBody: {
-      es: "Para nosotros es muy importante que en este día estén cerca personas que siguen su propio camino con valentía y permanecen fieles a sí mismas. Valoramos mucho tu sinceridad y tu fortaleza interior. Estaremos felices de compartir esta celebración contigo.",
-      ru: "Нам особенно важно, чтобы в этот день рядом были люди, которые смело идут своим путём и остаются верными себе несмотря на давление общества. Мы очень ценим твою искренность и внутреннюю силу. Будем счастливы разделить с тобой этот праздник.",
-      en: "It is especially important to us that on this day we are surrounded by people who bravely follow their own path and stay true to themselves. We deeply value your sincerity and inner strength. We will be happy to share this celebration with you.",
-    },
-    guestNames: {
-      es: "Danila",
-      ru: "Данила",
-      en: "Danila",
-    },
-  },
-
-  "r8": {
-    dearTitle: {
-      es: "Queridos Ksyusha y Denis",
-      ru: "Дорогие Ксюша и Денис",
-      en: "Dear Ksyusha and Denis",
-    },
-    dearBody: {
-      es: "Nos alegra profundamente que este año nuestra familia tenga tantos motivos para celebrar. Estamos muy honrados de estar invitados a su boda y seremos felices de compartir también nuestro día con ustedes. Que este año marque el comienzo de una hermosa nueva etapa para todos.",
-      ru: "Мы искренне рады, что в этом году в нашей семье будет столько поводов для счастья. Нам очень приятно быть приглашёнными на ваше торжество, и мы будем счастливы разделить с вами и наш праздник тоже. Пусть этот год станет для всех нас началом красивой новой главы.",
-      en: "We are truly happy that this year brings so many joyful moments to our family. We are honored to be invited to your wedding and would be delighted to share our celebration with you as well. May this year mark the beginning of a beautiful new chapter for all of us.",
-    },
-    guestNames: {
-      es: "Ksyusha, Denis",
-      ru: "Ксюша, Денис",
-      en: "Ksyusha and Denis",
-    },
-  },
-
-  "r9": {
-    dearTitle: {
-      es: "Querido Pasha",
-      ru: "Дорогой Паша",
-      en: "Dear Pasha",
-    },
-    dearBody: {
-      es: "En la vida son especialmente valiosas las personas que permanecen cerca y apoyan con sinceridad. Para nosotros es muy importante invitarte a compartir este día y nuestra felicidad. Gracias por la calidez y el cariño que siempre hemos sentido.",
-      ru: "В жизни особенно ценны люди, которые остаются рядом и поддерживают искренне и по-настоящему. Нам очень важно пригласить тебя в этот день и разделить с тобой наше счастье. Спасибо за тепло и отношение, которое мы всегда чувствовали.",
-      en: "In life, the most valuable people are those who stay close and offer genuine support. It is very important for us to invite you to share this day and our happiness. Thank you for the warmth and care we have always felt.",
-    },
-    guestNames: {
-      es: "Pasha",
-      ru: "Паша",
-      en: "Pasha",
-    },
-  },
-
-  "r10": {
-    dearTitle: {
-      es: "Querido Misha",
-      ru: "Дорогой Миша",
-      en: "Dear Misha",
-    },
-    dearBody: {
-      es: "Nos hace muy felices que en este día estén con nosotros las personas que han compartido momentos importantes de nuestra vida. La amistad es un gran tesoro, y estaremos encantados de celebrar juntos el comienzo de nuestra historia familiar.",
-      ru: "Нам невероятно приятно, что в этот день рядом будут люди, прошедшие с нами важные этапы жизни. Дружба — это огромная ценность, и мы будем счастливы отпраздновать вместе начало нашей семейной истории.",
-      en: "It means so much to us that on this day we will be surrounded by people who have shared important stages of our lives. Friendship is a great treasure, and we will be happy to celebrate the beginning of our family story together.",
-    },
-    guestNames: {
-      es: "Misha",
-      ru: "Миша",
-      en: "Misha",
-    },
-  },
-
-  "r11": {
-    dearTitle: {
-      es: "Querido Vadim",
-      ru: "Дорогой Вадим",
-      en: "Dear Vadim",
-    },
-    dearBody: {
-      es: "Valoramos sinceramente tu apoyo, confianza y buena actitud. Nos hará muy felices verte entre nuestros invitados y compartir contigo este día tan especial.",
-      ru: "Мы искренне ценим поддержку, доверие и доброе отношение, которое всегда чувствуется. Нам будет очень приятно видеть тебя среди гостей и разделить с тобой этот особенный день.",
-      en: "We truly appreciate your support, trust, and kindness. It would mean a lot to us to have you among our guests and share this special day together.",
-    },
-    guestNames: {
-      es: "Vadim",
-      ru: "Вадим",
-      en: "Vadim",
-    },
-  },
-  "e12": {
-    // Mamá y Papá
-    dearTitle: {
-      es: "Mamá y Papá",
-      ru: "Mamá y Papá",
-      en: "Mamá y Papá",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Mamá, Papá",
-      ru: "Mamá, Papá",
-      en: "Mamá, Papá",
-    },
-  },
-  "e13": {
-    // Anjelica
-    dearTitle: {
-      es: "Anjelica",
-      ru: "Anjelica",
-      en: "Anjelica",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Anjelica",
-      ru: "Anjelica",
-      en: "Anjelica",
-    },
-  },
-  "e14": {
-    // Fabian y María José
-    dearTitle: {
-      es: "Fabian y María José",
-      ru: "Fabian y María José",
-      en: "Fabian y María José",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Fabian, María José",
-      ru: "Fabian, María José",
-      en: "Fabian, María José",
-    },
-  },
-  "e15": {
-    // Shantal
-    dearTitle: {
-      es: "Shantal",
-      ru: "Shantal",
-      en: "Shantal",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Shantal",
-      ru: "Shantal",
-      en: "Shantal",
-    },
-  },
-  "e16": {
-    // Mateo
-    dearTitle: {
-      es: "Mateo",
-      ru: "Mateo",
-      en: "Mateo",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Mateo",
-      ru: "Mateo",
-      en: "Mateo",
-    },
-  },
-  "e17": {
-    // Kim
-    dearTitle: {
-      es: "Kim",
-      ru: "Kim",
-      en: "Kim",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Kim",
-      ru: "Kim",
-      en: "Kim",
-    },
-  },
-  "e18": {
-    // Alex y Sebastián
-    dearTitle: {
-      es: "Alex y Sebastián",
-      ru: "Alex y Sebastián",
-      en: "Alex y Sebastián",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Alex, Sebastián",
-      ru: "Alex, Sebastián",
-      en: "Alex, Sebastián",
-    },
-  },
-  "e19": {
-    // Liuda y Alejó
-    dearTitle: {
-      es: "Liuda y Alejó",
-      ru: "Liuda y Alejó",
-      en: "Liuda y Alejó",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Liuda, Alejó",
-      ru: "Liuda, Alejó",
-      en: "Liuda, Alejó",
-    },
-  },
-  "e20": {
-    // Kianny
-    dearTitle: {
-      es: "Kianny",
-      ru: "Kianny",
-      en: "Kianny",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Kianny",
-      ru: "Kianny",
-      en: "Kianny",
-    },
-  },
-  "e21": {
-    // Yulia y Diego
-    dearTitle: {
-      es: "Юля y Diego",
-      ru: "Юля y Diego",
-      en: "Юля y Diego",
-    },
-    dearBody: {
-      es: "Queridos Yulia y Diego, ustedes son mucho más que amigos para nosotros. Han estado presentes en momentos importantes de nuestra vida, y su cariño y apoyo significan muchísimo. No podemos imaginar este día sin ustedes a nuestro lado. Gracias por ser parte de nuestra historia 🤍",
-      ru: "Дорогие Юля и Диего, вы для нас намного больше, чем просто друзья. Вы были рядом в важные моменты нашей жизни, и ваша поддержка и тепло значат для нас очень много. Мы не представляем этот день без вас. Спасибо, что вы — часть нашей истории 🤍",
-      en: "Dear Yulia and Diego, you are so much more than friends to us. You have been there for some of the most important moments in our lives, and your love and support mean the world to us. We truly cannot imagine this day without you by our side. Thank you for being part of our story 🤍",
-    },
-    guestNames: {
-      es: "Юля, Diego",
-      ru: "Юля, Diego",
-      en: "Юля, Diego",
-    },
-  },
-  "e22": {
-    // Berat y Nastya
-    dearTitle: {
-      es: "Berat y Настя",
-      ru: "Berat y Настя",
-      en: "Berat y Настя",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Berat, Настя",
-      ru: "Berat, Настя",
-      en: "Berat, Настя",
-    },
-  },
-  "en23": {
-    // Robert
-    dearTitle: {
-      es: "Robert",
-      ru: "Robert",
-      en: "Robert",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Robert",
-      ru: "Robert",
-      en: "Robert",
-    },
-  },
-  "e24": {
-    // Karen
-    dearTitle: {
-      es: "Karen",
-      ru: "Karen",
-      en: "Karen",
-    },
-    dearBody: {
-      es: "",
-      ru: "",
-      en: "",
-    },
-    guestNames: {
-      es: "Karen",
-      ru: "Karen",
-      en: "Karen",
-    },
-  },
-  "r25": {
-    // Жанна
-    dearTitle: {
-      es: "Жанна",
-      ru: "Жанна",
-      en: "Жанна",
-    },
-    dearBody: {
-      es: "Tu energía, tu risa y tu manera de ver la vida siempre nos inspiran. Llevas luz y alegría allá donde vas, y no podemos imaginar esta celebración sin tu sonrisa brillante.",
-      ru: "Ваша энергия, смех и умение радоваться жизни всегда вдохновляют нас. Вы приносите свет и тепло в любое место, где появляетесь, и мы не представляем этот праздник без вашей сияющей улыбки.",
-      en: "Your energy, your laughter and the way you embrace life always inspire us. You bring light and joy wherever you go, and we truly cannot imagine this celebration without your radiant smile.",
-    },
-    guestNames: {
-      es: "Жанна",
-      ru: "Жанна",
-      en: "Жанна",
-    },
-  },
+  // ... (tu lista completa sigue igual)
   "r26": {
-    // Дядя Женя и тётя Катя
-    dearTitle: {
-      es: "Дядя Женя и тётя Катя",
-      ru: "Дядя Женя и тётя Катя",
-      en: "Дядя Женя и тётя Катя",
-    },
+    dearTitle: { es: "Дядя Женя и тётя Катя", ru: "Дядя Женя и тётя Катя", en: "Дядя Женя и тётя Катя" },
     dearBody: {
       es: "Gracias por su apoyo constante y por recibir a Laura en la familia con tanto cariño y calidez desde el primer momento. Para nosotros significa muchísimo sentir ese abrazo sincero y saber que siempre contamos con ustedes. No podemos imaginar este día sin su presencia y su corazón abierto",
       ru: "Спасибо вам за вашу постоянную поддержку и за то, что вы приняли Лауру в семью с таким теплом и искренностью с самого первого момента. Для нас бесценно чувствовать это родное отношение и знать, что вы всегда рядом. Мы очень счастливы разделить этот день вместе с вами 🤍",
       en: "Thank you for your constant support and for welcoming Laura into the family with such warmth and sincerity from the very beginning. It means so much to us to feel that genuine embrace and to know we can always count on you. We are truly happy to share this day with you 🤍",
     },
-    guestNames: {
-      es: "Дядя Женя, тётя Катя",
-      ru: "Дядя Женя, тётя Катя",
-      en: "Дядя Женя, тётя Катя",
-    },
+    guestNames: { es: "Дядя Женя, тётя Катя", ru: "Дядя Женя, тётя Катя", en: "Дядя Женя, тётя Катя" },
   },
 }
 
+// --- Copy ---
 const copy = {
   es: {
     heroTitle: "¡Nos casamos!",
@@ -510,7 +60,6 @@ const copy = {
     dearTitle: "Queridos amigos,",
     dearBody:
       "Con muchísima ilusión queremos invitarles a celebrar con nosotros uno de los días más especiales de nuestras vidas.",
-
     detailsTitle: "Detalles",
     placeTitle: "Lugar",
     placeAddr: "San Petersburgo, поселок Александровская, Волхонское ш., д. 7",
@@ -527,16 +76,13 @@ const copy = {
     sch4Note:
       "Esperamos que esta noche sea inolvidable, no olviden organizar su transfer de vuelta a casa con anticipación",
     dressTitle: "Dress code",
-    dressBody1:
-      "Por favor, elijan un look en una paleta tranquila. El blanco lo dejamos para la novia 🤍",
-    dressBody2: "El estilo: como se sientan cómodos.",
-
+    dressBody1: "Chic Garden",
+    dressBody2: "El dress code es totalmente opcional — lo más importante es que se sientan cómodos🤍",
     giftsTitle: "Regalos",
     giftsBody:
       "Lo más importante para nosotros es su presencia y buena energía. Si desean hacernos un regalo, estaremos agradecidos por una contribución a nuestro presupuesto familiar.",
     giftsNote: "",
-
-    rsvpTitle: "RSVP",
+    rsvpTitle: "Confirmación de asitencia",
     rsvpSubtitle: "Por favor, confirmen su asistencia antes de mayo.",
     nameLabel: "Tu nombre",
     attendLegend: "¿Vendrás?",
@@ -552,7 +98,6 @@ const copy = {
     drinkNoAlcoholText: "Sin alcohol",
     rsvpSubmitText: "Enviar",
     rsvpHint: "Tus respuestas se guardarán en nuestra tabla.",
-
     toastSent: "¡Gracias! Hemos recibido tu respuesta.",
     toastNeedName: "Por favor, escribe tu nombre.",
     toastNeedAttendance: "Por favor, confirma tu asistencia.",
@@ -565,7 +110,6 @@ const copy = {
     dearTitle: "Дорогие друзья,",
     dearBody:
       "С огромной радостью приглашаем вас разделить с нами один из самых важных дней в нашей жизни.",
-
     detailsTitle: "Детали",
     placeTitle: "Место",
     placeAddr:
@@ -582,17 +126,15 @@ const copy = {
     sch4: "Завершение ужина",
     sch4Note: "надеемся, праздник запомнится вам",
     dressTitle: "Дресс-код",
-    dressBody1:
-      "Пожалуйста, выберите наряд в спокойной палитре. Белый оставим невесте 🤍",
-    dressBody2: "Стиль — как вам комфортно.",
+    dressBody1: "Chic Garden",
+    dressBody2: "Chic Garden",
     giftsTitle: "Про подарки",
     giftsBody:
-      "Для нас самое главное — ваше присутствие и тёплая атмосфера этого дня. Если вы захотите сделать подарок, будем благодарны вкладу в наш семейный бюджет.",
+      "Дресс-код необязателен — для нас важнее ваше присутствие и улыбки 🤍",
     giftsNote:
       "Вместо букетов подарите нам свои улыбки и тёплые объятия. В этот день мы выбираем заботу о природе",
-
-    rsvpTitle: "RSVP",
-    rsvpSubtitle: "Пожалуйста, подтвердите присутствие до мая.",
+    rsvpTitle:"Подтверждение участия",
+    rsvpSubtitle: "Пожалуйста, подтвердите присутствие до 1 мая.",
     nameLabel: "Ваше имя",
     attendLegend: "Вы придёте?",
     attYesText: "Смогу прийти 🤍",
@@ -607,10 +149,9 @@ const copy = {
     drinkNoAlcoholText: "Без алкоголя",
     rsvpSubmitText: "Отправить",
     rsvpHint: "Ваш ответ сохранится в нашей таблице.",
-
     toastSent: "Спасибо! Мы получили ваш ответ.",
     toastNeedName: "Пожалуйста, укажите имя.",
-    toastNeedAttendance: "Пожалуйста, выберите: сможете прийти или нет.",
+    toastNeedAttendance: "Пожалуйста, подтвердите своё участие",
     toastError: "Ой… не получилось отправить форму. Попробуйте ещё раз чуть позже.",
   },
 
@@ -620,7 +161,6 @@ const copy = {
     dearTitle: "Dear friends,",
     dearBody:
       "We would love to celebrate this special day with you. Your presence means the world to us.",
-
     detailsTitle: "Details",
     placeTitle: "Venue",
     placeAddr: "Saint Petersburg, Aleksandrovskaya, Volkhonskoye highway, 7",
@@ -636,16 +176,14 @@ const copy = {
     sch4: "Dinner ends",
     sch4Note: "we hope this night stays with you",
     dressTitle: "Dress code",
-    dressBody1:
-      "Please choose an outfit in a calm palette. White is reserved for the bride 🤍",
-    dressBody2: "Style: whatever feels comfortable.",
+    dressBody1: "Chic Garden",
+    dressBody2: "The dress code is optional, your presence means more than anything 🤍",
     giftsTitle: "Gifts",
     giftsBody:
       "Your presence is the greatest gift for us. If you’d like to give something, we would truly appreciate a contribution to our family budget.",
     giftsNote: "",
-
-    rsvpTitle: "RSVP",
-    rsvpSubtitle: "Please confirm your attendance by May.",
+    rsvpTitle: "Attendance confirmation",
+    rsvpSubtitle: "Please confirm your attendance by May 1st.",
     nameLabel: "Your name",
     attendLegend: "Will you attend?",
     attYesText: "I can make it 🤍",
@@ -659,11 +197,10 @@ const copy = {
     drinkVodkaText: "Vodka",
     drinkNoAlcoholText: "No alcohol",
     rsvpSubmitText: "Send",
-    rsvpHint: "Your RSVP will be saved to our spreadsheet.",
-
+    rsvpHint: "Your confirmation will be saved to our spreadsheet.",
     toastSent: "Thank you! We received your RSVP.",
     toastNeedName: "Please enter your name.",
-    toastNeedAttendance: "Please choose whether you’re coming.",
+    toastNeedAttendance: "Please confirm your attendance",
     toastError: "Oops… we couldn’t send the form. Please try again in a bit.",
   },
 }
@@ -676,16 +213,12 @@ function setText(id, value) {
 }
 
 function renderStatic() {
-  setText("brandNames", SETTINGS.coupleNames)
   setText("heroNames", SETTINGS.heroNames)
   setText("heroDate", SETTINGS.dateLine)
 }
 
-/**
- * Convert time strings like "10:00" into spans, if your layout uses it.
- * (Safe to keep even if no matching elements exist.)
- */
 function formatScheduleTimes() {
+  // (safe even if no elements match)
   document.querySelectorAll("#schedule .t-time").forEach((el) => {
     if (el.querySelector(".sep")) return
     const txt = el.textContent.trim()
@@ -707,9 +240,8 @@ function renderLang() {
   $("btnEN")?.classList.toggle("is-active", lang === "en")
 
   setText("heroTitle", t.heroTitle)
-  setText("scrollBtn", t.scrollBtn)
 
-  // Dear (can be overridden per group with ?g=...)
+  // Dear (override per group)
   const group = GROUPS[INVITE.groupId]
   const gTitle = group?.dearTitle?.[lang]
   const gBody = group?.dearBody?.[lang]
@@ -717,23 +249,22 @@ function renderLang() {
   setText("dearBody", gBody && gBody.trim() ? gBody : t.dearBody)
 
   // Details
-  setText("detailsTitle", t.detailsTitle)
   setText("placeTitle", t.placeTitle)
   setText("placeAddr", t.placeAddr)
   setText("placeDescription", t.placeDescription)
-  setText("placeLink", t.placeLink)
+  // NOTE: your #placeLink is an <a>, textContent would replace "Abrir →".
+  // If you want the button label localized, add a span with id="placeLinkLabel" inside <a>.
   setText("scheduleTitle", t.scheduleTitle)
   setText("sch1", t.sch1)
-  setText("sch1Note", t.sch1Note)
   setText("sch2", t.sch2)
-  setText("sch2Note", t.sch2Note)
   setText("sch3", t.sch3)
-  setText("sch3Note", t.sch3Note)
   setText("sch4", t.sch4)
   setText("sch4Note", t.sch4Note)
+
   setText("dressTitle", t.dressTitle)
   setText("dressBody1", t.dressBody1)
   setText("dressBody2", t.dressBody2)
+
   setText("giftsTitle", t.giftsTitle)
   setText("giftsBody", t.giftsBody)
   setText("giftsNote", t.giftsNote)
@@ -754,7 +285,6 @@ function renderLang() {
   setText("drinkVodkaText", t.drinkVodkaText)
   setText("drinkNoAlcoholText", t.drinkNoAlcoholText)
   setText("rsvpSubmitText", t.rsvpSubmitText)
-  setText("rsvpHint", t.rsvpHint)
 
   document.documentElement.lang = lang
   formatScheduleTimes()
@@ -851,6 +381,7 @@ function goToHero() {
     intro.remove()
     content.classList.add("is-visible")
 
+    // reveal hero text
     requestAnimationFrame(() => {
       document.querySelector(".hero")?.classList.add("is-revealed")
     })
@@ -978,7 +509,6 @@ function smoothScrollFrameTo(frame, targetTop, duration = null) {
   const dist = Math.abs(endTop - startTop)
   if (dist < 2) return
 
-  // dynamic duration (smooth for short + long jumps)
   const dur =
     duration ??
     Math.max(520, Math.min(1250, Math.round(dist * 0.8))) // clamp 520..1250ms
@@ -990,12 +520,11 @@ function smoothScrollFrameTo(frame, targetTop, duration = null) {
   const easeInOutCubic = (t) =>
     t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 
-  // Disable snap during animation (prevents snap interference mid-flight)
+  // Disable snap during animation
   const prevSnap = frame.style.scrollSnapType
   frame.style.scrollSnapType = "none"
 
   const restoreSnapLater = () => {
-    // restore snap AFTER 2 RAFs to avoid “end jerk”
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         frame.style.scrollSnapType = prevSnap || ""
@@ -1008,8 +537,6 @@ function smoothScrollFrameTo(frame, targetTop, duration = null) {
     cancelled = true
     if (raf) cancelAnimationFrame(raf)
     raf = 0
-
-    // On cancel: restore snap, but not immediately (same reason)
     restoreSnapLater()
   }
 
@@ -1019,8 +546,6 @@ function smoothScrollFrameTo(frame, targetTop, duration = null) {
     if (cancelled) return
     const t = Math.min(1, (now - start) / dur)
     const eased = easeInOutCubic(t)
-
-    // interpolate
     frame.scrollTop = startTop + (endTop - startTop) * eased
 
     if (t < 1) {
@@ -1028,20 +553,12 @@ function smoothScrollFrameTo(frame, targetTop, duration = null) {
       return
     }
 
-    // Finalize position precisely (avoid rounding wobble)
     frame.scrollTop = endTop
-
-    // Restore snap a moment later to prevent proximity snap “pull”
     restoreSnapLater()
   }
 
   raf = requestAnimationFrame(tick)
 }
-
-/**
- * Align: bottom of viewport == bottom of element (with a tiny padding).
- * This is exactly what you asked: "низ экрана — низ блока".
- */
 
 function scrollToAlign(id, align = "bottom", padding = 18) {
   const frame = document.querySelector(".phone-frame")
@@ -1054,11 +571,9 @@ function scrollToAlign(id, align = "bottom", padding = 18) {
   let targetTop
 
   if (align === "top") {
-    // низ экрана = верх блока
     const topInFrame = elRect.top - frameRect.top + frame.scrollTop
     targetTop = topInFrame - frame.clientHeight + padding
   } else {
-    // низ экрана = низ блока
     const bottomInFrame = elRect.bottom - frameRect.top + frame.scrollTop
     targetTop = bottomInFrame - frame.clientHeight + padding
   }
@@ -1073,13 +588,36 @@ function scrollToAlign(id, align = "bottom", padding = 18) {
 /* Step scroll sequence           */
 /* ============================= */
 let scrollStep = 0
-
 const SCROLL_SEQUENCE = [
   { id: "schedule", align: "top" },
   { id: "dress", align: "top" },
   { id: "gifts", align: "bottom" },
-  { id: "rsvp", align: "bottom" }
+  { id: "rsvp", align: "bottom" },
 ]
+
+/* ============================= */
+/* Reveal (ONE observer, correct root) */
+/* ============================= */
+function initReveal() {
+  const frame = document.querySelector(".phone-frame")
+  const targets = document.querySelectorAll("#content .section, #content .hero")
+  if (!frame || !targets.length) return
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-inview")
+          if (e.target.classList.contains("hero")) e.target.classList.add("is-revealed")
+          io.unobserve(e.target)
+        }
+      })
+    },
+    { root: frame, threshold: 0.18 }
+  )
+
+  targets.forEach((el) => io.observe(el))
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   renderStatic()
@@ -1089,46 +627,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const frame = document.querySelector(".phone-frame")
 
-  // Cancel smooth scroll immediately when user starts scrolling manually
+  // Cancel smooth scroll when user scrolls manually
   const cancelOnUser = () => cancelScrollAnim?.()
   frame?.addEventListener("wheel", cancelOnUser, { passive: true })
   frame?.addEventListener("touchstart", cancelOnUser, { passive: true })
   frame?.addEventListener("touchmove", cancelOnUser, { passive: true })
 
-  // pin overlay to the phone frame (so button stays in bottom-right of the frame)
+  // pin overlay to the phone frame
   pinScrollButtonToFrame()
   window.addEventListener("resize", pinScrollButtonToFrame, { passive: true })
   window.addEventListener("scroll", pinScrollButtonToFrame, { passive: true })
 
   // Step scroll button
   $("scrollNext")?.addEventListener("click", () => {
-  const step = SCROLL_SEQUENCE[scrollStep]
-  if (!step) return
+    const step = SCROLL_SEQUENCE[scrollStep]
+    if (!step) return
 
-  scrollToAlign(step.id, step.align, 18)
-
-  scrollStep = (scrollStep + 1) % SCROLL_SEQUENCE.length
-})
-
-  // Reveal animations
-  const revealNodes = document.querySelectorAll(".t-item, .section")
-  if (revealNodes.length) {
-    revealNodes.forEach((el) => el.classList.add("reveal"))
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in")
-            io.unobserve(e.target)
-          }
-        })
-      },
-      { threshold: 0.15 }
-    )
-
-    revealNodes.forEach((el) => io.observe(el))
-  }
+    scrollToAlign(step.id, step.align, 18)
+    scrollStep = (scrollStep + 1) % SCROLL_SEQUENCE.length
+  })
 
   // Language buttons
   $("btnES")?.addEventListener("click", () => {
@@ -1147,8 +664,10 @@ document.addEventListener("DOMContentLoaded", () => {
     autofillGuestNameFromGroup()
   })
 
-  // Intro open
-  $("intro")?.addEventListener("click", () => {
+  // Intro open — ONLY heart button (prevents double triggers)
+  $("heartBtn")?.addEventListener("click", (e) => {
+    e.preventDefault()
+    e.stopPropagation()
     if (hasOpened) return
     hasOpened = true
 
@@ -1158,7 +677,11 @@ document.addEventListener("DOMContentLoaded", () => {
       $("intro")?.classList.add("is-leaving")
     }, 1600)
 
-    setTimeout(goToHero, 2100)
+    setTimeout(() => {
+      goToHero()
+      // init reveal AFTER content becomes visible
+      setTimeout(initReveal, 20)
+    }, 2100)
   })
 
   // RSVP behavior
