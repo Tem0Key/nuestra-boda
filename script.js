@@ -13,6 +13,18 @@ const SETTINGS = {
   heroNames: "MARILAURA & ARTYOM",
 }
 
+
+const params = new URLSearchParams(window.location.search)
+
+const groupParam = params.get("g")
+const langParam = params.get("lang")
+
+if (langParam && ["ru", "es", "en"].includes(langParam)) {
+  lang = langParam
+}
+
+
+
 // --- Invite group from URL: ?g=... ---
 const INVITE = (() => {
   const p = new URLSearchParams(location.search)
