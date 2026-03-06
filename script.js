@@ -23,32 +23,456 @@ const INVITE = (() => {
 // --- Groups config (easy to extend) ---
 const GROUPS = {
   "r1": {
-    dearTitle: { es: "Queridas mamá, abuela y Nyusik", ru: "Дорогие Мама, бабушка и Аничка", en: "Dear Mom, Grandma and Nyusik" },
+    // Мама, Бабушка, Аня
+    dearTitle: {
+      es: "Queridas mamá, abuela y Nyusik",
+      ru: "Дорогие Мама, бабушка и Аничка",
+      en: "Dear Mom, Grandma and Nyusik",
+    },
     dearBody: {
       es: "Ustedes son la base de nuestra familia, su corazón y sus raíces. Gracias por el amor, el cuidado y la fortaleza que nos han dado y siguen dando. Para nosotros es infinitamente importante que estén a nuestro lado en este día. Sin ustedes, esta celebración simplemente no sería la misma.",
       ru: "Вы — основа нашей семьи, её сердце и её корни. Спасибо вам за любовь, заботу и силу, которые вы дарили и продолжаете дарить. Нам бесконечно важно, что в этот день вы будете рядом с нами. Без вас этот праздник просто не был бы таким, каким мы его чувствуем.",
       en: "You are the foundation of our family — its heart and its roots. Thank you for the love, care, and strength you have given and continue to give. It means the world to us that you will be by our side on this day. Without you, this celebration simply would not feel the same.",
     },
-    guestNames: { es: "Mamá, abuela y Nyusik", ru: "Мама, Бабушка, Аня", en: "Mom, Grandma and Nyusik" },
+    guestNames: {
+      es: "Mamá, abuela y Nyusik",
+      ru: "Мама, Бабушка, Аня",
+      en: "Mom, Grandma and Nyusik",
+    },
   },
+
   "r2": {
-    dearTitle: { es: "Queridos papá, Tanya y Demid", ru: "Дорогие Папа, Таня и Демид", en: "Dear Dad, Tanya and Demid" },
+    // Папа, Таня, Демид
+    dearTitle: {
+      es: "Queridos papá, Tanya y Demid",
+      ru: "Дорогие Папа, Таня и Демид",
+      en: "Dear Dad, Tanya and Demid",
+    },
     dearBody: {
       es: "Gracias por su apoyo, atención y calidez. Para nosotros es muy valioso que estén con nosotros en este día tan importante. Seremos muy felices de compartir nuestra alegría con ustedes y crear juntos un recuerdo familiar más lleno de luz.",
       ru: "Спасибо вам за поддержку, внимание и тёплое отношение. Нам очень ценно, что вы будете рядом в этот важный для нас день. Мы будем счастливы разделить с вами нашу радость и создать вместе ещё одно светлое семейное воспоминание.",
       en: "Thank you for your support, care, and warmth. It means so much to us that you will be by our side on this important day. We will be truly happy to share our joy with you and create another bright family memory together.",
     },
-    guestNames: { es: "Papá, Tanya y Demid", ru: "Папа, Таня, Демид", en: "Dad, Tanya and Demid" },
-  },
-  // ... (tu lista completa sigue igual)
-  "r26": {
-    dearTitle: { es: "Дядя Женя и тётя Катя", ru: "Дядя Женя и тётя Катя", en: "Дядя Женя и тётя Катя" },
-    dearBody: {
-      es: "Gracias por su apoyo constante y por recibir a Laura en la familia con tanto cariño y calidez desde el primer momento. Para nosotros significa muchísimo sentir ese abrazo sincero y saber que siempre contamos con ustedes. No podemos imaginar este día sin su presencia y su corazón abierto",
-      ru: "Спасибо вам за вашу постоянную поддержку и за то, что вы приняли Лауру в семью с таким теплом и искренностью с самого первого момента. Для нас бесценно чувствовать это родное отношение и знать, что вы всегда рядом. Мы очень счастливы разделить этот день вместе с вами 🤍",
-      en: "Thank you for your constant support and for welcoming Laura into the family with such warmth and sincerity from the very beginning. It means so much to us to feel that genuine embrace and to know we can always count on you. We are truly happy to share this day with you 🤍",
+    guestNames: {
+      es: "Papá, Tanya y Demid",
+      ru: "Папа, Таня, Демид",
+      en: "Dad, Tanya and Demid",
     },
-    guestNames: { es: "Дядя Женя, тётя Катя", ru: "Дядя Женя, тётя Катя", en: "Дядя Женя, тётя Катя" },
+  },
+
+  "r3": {
+    // Дима, Алёна
+    dearTitle: {
+      es: "Queridos Dima y Alena",
+      ru: "Дорогие Дима и Алёна",
+      en: "Dear Dima and Alena",
+    },
+    dearBody: {
+      es: "Nos hace especial ilusión invitarlos a compartir este día con nosotros. La sinceridad, el respeto y la calidez en la familia son un gran valor. Estaremos muy felices de verlos a nuestro lado y celebrar juntos el comienzo de una nueva etapa.",
+      ru: "Нам особенно приятно пригласить вас разделить с нами этот день. Искренность, уважение и тёплое отношение в семье — это огромная ценность. Будем очень рады видеть вас рядом и отпраздновать вместе начало нашей новой главы.",
+      en: "It means a great deal to us to invite you to share this day with us. Sincerity, respect, and warmth within a family are truly invaluable. We will be very happy to have you by our side as we celebrate the beginning of our new chapter together.",
+    },
+    guestNames: {
+      es: "Dima, Alena",
+      ru: "Дима, Алёна",
+      en: "Dima, Alena",
+    },
+  },
+
+  "r4": {
+    dearTitle: {
+      es: "Queridos Olya, Ilya y Masha",
+      ru: "Дорогие Оля, Илья и Маша",
+      en: "Dear Olya, Ilya and Masha",
+    },
+    dearBody: {
+      es: "En la vida son especialmente importantes las personas que apoyan de manera sincera e incondicional. Gracias por el cariño y la cercanía que siempre hemos sentido. Nos hará muy felices que compartan este día con nosotros.",
+      ru: "В жизни особенно важны люди, которые поддерживают безусловно и искренне. Спасибо вам за тепло, участие и любовь, которые всегда чувствовались. Нам будет очень радостно, если этот день вы проведёте вместе с нами.",
+      en: "In life, the most important people are those who support us sincerely and unconditionally. Thank you for the warmth and love we have always felt from you. It would bring us great joy to have you share this day with us.",
+    },
+    guestNames: {
+      es: "Olya, Ilya, Masha",
+      ru: "Оля, Илья, Маша",
+      en: "Olya, Ilya, Masha",
+    },
+  },
+
+  "r5": {
+    dearTitle: {
+      es: "Queridos Vasya y Anya",
+      ru: "Дорогие Вася и Аня",
+      en: "Dear Vasya and Anya",
+    },
+    dearBody: {
+      es: "La familia no es solo lazos de sangre, sino también respeto y apoyo mutuo. Nos alegra profundamente sentir esa conexión. Estaremos muy felices de tenerlos a nuestro lado y compartir con ustedes nuestra felicidad.",
+      ru: "Семья — это не только родство, но и взаимное уважение и поддержка. Нам очень приятно чувствовать эту связь. Будем счастливы видеть вас рядом в этот день и разделить с вами наше счастье.",
+      en: "Family is not only about blood ties, but also about mutual respect and support. We truly value this connection. We will be very happy to have you by our side and share our happiness with you.",
+    },
+    guestNames: {
+      es: "Vasya, Anya",
+      ru: "Вася, Аня",
+      en: "Vasya, Anya",
+    },
+  },
+
+  "r6": {
+    dearTitle: {
+      es: "Querida Yana",
+      ru: "Дорогая Яна",
+      en: "Dear Yana",
+    },
+    dearBody: {
+      es: "Aunque no nos veamos tan a menudo como quisiéramos, el vínculo cálido permanece. Para nosotros es importante que en este día estén cerca las personas que sinceramente se preocupan y apoyan. Estaremos encantados de celebrarlo juntos.",
+      ru: "Даже если мы видимся не так часто, как хотелось бы, тёплая связь остаётся. Нам важно, чтобы в этот день рядом были люди, которые искренне переживают и поддерживают. Будем очень рады провести этот праздник вместе.",
+      en: "Even if we do not see each other as often as we would like, the warm connection remains. It is important to us that on this day we are surrounded by people who truly care and support us. We would be very happy to celebrate together.",
+    },
+    guestNames: {
+      es: "Yana",
+      ru: "Яна",
+      en: "Yana",
+    },
+  },
+
+  "r7": {
+    dearTitle: {
+      es: "Querido Danila",
+      ru: "Дорогой Данила",
+      en: "Dear Danila",
+    },
+    dearBody: {
+      es: "Para nosotros es muy importante que en este día estén cerca personas que siguen su propio camino con valentía y permanecen fieles a sí mismas. Valoramos mucho tu sinceridad y tu fortaleza interior. Estaremos felices de compartir esta celebración contigo.",
+      ru: "Нам особенно важно, чтобы в этот день рядом были люди, которые смело идут своим путём и остаются верными себе несмотря на давление общества. Мы очень ценим твою искренность и внутреннюю силу. Будем счастливы разделить с тобой этот праздник.",
+      en: "It is especially important to us that on this day we are surrounded by people who bravely follow their own path and stay true to themselves. We deeply value your sincerity and inner strength. We will be happy to share this celebration with you.",
+    },
+    guestNames: {
+      es: "Danila",
+      ru: "Данила",
+      en: "Danila",
+    },
+  },
+
+  "r8": {
+    dearTitle: {
+      es: "Queridos Ksyusha y Denis",
+      ru: "Дорогие Ксюша и Денис",
+      en: "Dear Ksyusha and Denis",
+    },
+    dearBody: {
+      es: "Nos alegra profundamente que este año nuestra familia tenga tantos motivos para celebrar. Estamos muy honrados de estar invitados a su boda y seremos felices de compartir también nuestro día con ustedes. Que este año marque el comienzo de una hermosa nueva etapa para todos.",
+      ru: "Мы искренне рады, что в этом году в нашей семье будет столько поводов для счастья. Нам очень приятно быть приглашёнными на ваше торжество, и мы будем счастливы разделить с вами и наш праздник тоже. Пусть этот год станет для всех нас началом красивой новой главы.",
+      en: "We are truly happy that this year brings so many joyful moments to our family. We are honored to be invited to your wedding and would be delighted to share our celebration with you as well. May this year mark the beginning of a beautiful new chapter for all of us.",
+    },
+    guestNames: {
+      es: "Ksyusha, Denis",
+      ru: "Ксюша, Денис",
+      en: "Ksyusha and Denis",
+    },
+  },
+
+  "r9": {
+    dearTitle: {
+      es: "Querido Pasha",
+      ru: "Дорогой Паша",
+      en: "Dear Pasha",
+    },
+    dearBody: {
+      es: "En la vida son especialmente valiosas las personas que permanecen cerca y apoyan con sinceridad. Para nosotros es muy importante invitarte a compartir este día y nuestra felicidad. Gracias por la calidez y el cariño que siempre hemos sentido.",
+      ru: "В жизни особенно ценны люди, которые остаются рядом и поддерживают искренне и по-настоящему. Нам очень важно пригласить тебя в этот день и разделить с тобой наше счастье. Спасибо за тепло и отношение, которое мы всегда чувствовали.",
+      en: "In life, the most valuable people are those who stay close and offer genuine support. It is very important for us to invite you to share this day and our happiness. Thank you for the warmth and care we have always felt.",
+    },
+    guestNames: {
+      es: "Pasha",
+      ru: "Паша",
+      en: "Pasha",
+    },
+  },
+
+  "r10": {
+    dearTitle: {
+      es: "Querido Misha",
+      ru: "Дорогой Миша",
+      en: "Dear Misha",
+    },
+    dearBody: {
+      es: "Nos hace muy felices que en este día estén con nosotros las personas que han compartido momentos importantes de nuestra vida. La amistad es un gran tesoro, y estaremos encantados de celebrar juntos el comienzo de nuestra historia familiar.",
+      ru: "Нам невероятно приятно, что в этот день рядом будут люди, прошедшие с нами важные этапы жизни. Дружба — это огромная ценность, и мы будем счастливы отпраздновать вместе начало нашей семейной истории.",
+      en: "It means so much to us that on this day we will be surrounded by people who have shared important stages of our lives. Friendship is a great treasure, and we will be happy to celebrate the beginning of our family story together.",
+    },
+    guestNames: {
+      es: "Misha",
+      ru: "Миша",
+      en: "Misha",
+    },
+  },
+
+  "r11": {
+    dearTitle: {
+      es: "Querido Vadim",
+      ru: "Дорогой Вадим",
+      en: "Dear Vadim",
+    },
+    dearBody: {
+      es: "Valoramos sinceramente tu apoyo, confianza y buena actitud. Nos hará muy felices verte entre nuestros invitados y compartir contigo este día tan especial.",
+      ru: "Мы искренне ценим поддержку, доверие и доброе отношение, которое всегда чувствуется. Нам будет очень приятно видеть тебя среди гостей и разделить с тобой этот особенный день.",
+      en: "We truly appreciate your support, trust, and kindness. It would mean a lot to us to have you among our guests and share this special day together.",
+    },
+    guestNames: {
+      es: "Vadim",
+      ru: "Вадим",
+      en: "Vadim",
+    },
+  },
+  "es12": {
+    // Mamá y Papá
+    dearTitle: {
+      es: "Mamá y Papá",
+      ru: "Mamá y Papá",
+      en: "Mamá y Papá",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Mamá, Papá",
+      ru: "Mamá, Papá",
+      en: "Mamá, Papá",
+    },
+  },
+  "es13": {
+    // Anjelica
+    dearTitle: {
+      es: "Anjelica",
+      ru: "Anjelica",
+      en: "Anjelica",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Anjelica",
+      ru: "Anjelica",
+      en: "Anjelica",
+    },
+  },
+  "es14": {
+    // Fabian y María José
+    dearTitle: {
+      es: "Fabian y María José",
+      ru: "Fabian y María José",
+      en: "Fabian y María José",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Fabian, María José",
+      ru: "Fabian, María José",
+      en: "Fabian, María José",
+    },
+  },
+  "es15": {
+    // Shantal
+    dearTitle: {
+      es: "Shantal",
+      ru: "Shantal",
+      en: "Shantal",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Shantal",
+      ru: "Shantal",
+      en: "Shantal",
+    },
+  },
+  "es16": {
+    // Mateo
+    dearTitle: {
+      es: "Mateo",
+      ru: "Mateo",
+      en: "Mateo",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Mateo",
+      ru: "Mateo",
+      en: "Mateo",
+    },
+  },
+  "es17": {
+    // Kim
+    dearTitle: {
+      es: "Kim",
+      ru: "Kim",
+      en: "Kim",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Kim",
+      ru: "Kim",
+      en: "Kim",
+    },
+  },
+  "es18": {
+    // Alex y Sebastián
+    dearTitle: {
+      es: "Alex y Sebastián",
+      ru: "Alex y Sebastián",
+      en: "Alex y Sebastián",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Alex, Sebastián",
+      ru: "Alex, Sebastián",
+      en: "Alex, Sebastián",
+    },
+  },
+  "es19": {
+    // Liuda y Alejó
+    dearTitle: {
+      es: "Liuda y Alejó",
+      ru: "Liuda y Alejó",
+      en: "Liuda y Alejó",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Liuda, Alejó",
+      ru: "Liuda, Alejó",
+      en: "Liuda, Alejó",
+    },
+  },
+  "es20": {
+    // Kianny
+    dearTitle: {
+      es: "Kianny",
+      ru: "Kianny",
+      en: "Kianny",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Kianny",
+      ru: "Kianny",
+      en: "Kianny",
+    },
+  },
+  "es21": {
+    // Yulia y Diego
+    dearTitle: {
+      es: "Yulia y Diego",
+      ru: "Yulia y Diego",
+      en: "Yulia y Diego",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Yulia, Diego",
+      ru: "Yulia, Diego",
+      en: "Yulia, Diego",
+    },
+  },
+  "r22": {
+    // Berat y Nastya
+    dearTitle: {
+      es: "Berat y Nastya",
+      ru: "Berat y Nastya",
+      en: "Berat y Nastya",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Berat, Nastya",
+      ru: "Berat, Nastya",
+      en: "Berat, Nastya",
+    },
+  },
+  "en23": {
+    // Robert
+    dearTitle: {
+      es: "Robert",
+      ru: "Robert",
+      en: "Robert",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Robert",
+      ru: "Robert",
+      en: "Robert",
+    },
+  },
+  "es24": {
+    // Karen
+    dearTitle: {
+      es: "Karen",
+      ru: "Karen",
+      en: "Karen",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Karen",
+      ru: "Karen",
+      en: "Karen",
+    },
+  },
+  "r25": {
+    // Жанна
+    dearTitle: {
+      es: "Жанна",
+      ru: "Жанна",
+      en: "Жанна",
+    },
+    dearBody: {
+      es: "",
+      ru: "",
+      en: "",
+    },
+    guestNames: {
+      es: "Жанна",
+      ru: "Жанна",
+      en: "Жанна",
+    },
   },
 }
 
@@ -57,7 +481,7 @@ const copy = {
   es: {
     heroTitle: "¡Nos casamos!",
     scrollBtn: "Ver detalles",
-    dearTitle: "Queridos amigos,",
+    dearTitle: "Queridos familia y amigos,",
     dearBody:
       "Con muchísima ilusión queremos invitarles a celebrar con nosotros uno de los días más especiales de nuestras vidas.",
     detailsTitle: "Detalles",
