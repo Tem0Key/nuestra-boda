@@ -237,9 +237,9 @@ const GROUPS = {
   "es12": {
     // Mamá y Papá
     dearTitle: {
-      es: "Mamá y Papá",
+      es: "á",
       ru: "Mamá y Papá",
-      en: "Mamá y Papá",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -255,9 +255,9 @@ const GROUPS = {
   "es13": {
     // Anjelica
     dearTitle: {
-      es: "Anjelica",
+      es: "",
       ru: "Anjelica",
-      en: "Anjelica",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -273,9 +273,9 @@ const GROUPS = {
   "es14": {
     // Fabian y María José
     dearTitle: {
-      es: "Fabian y María José",
+      es: "",
       ru: "Fabian y María José",
-      en: "Fabian y María José",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -291,9 +291,9 @@ const GROUPS = {
   "es15": {
     // Shantal
     dearTitle: {
-      es: "Shantal",
+      es: "",
       ru: "Shantal",
-      en: "Shantal",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -309,9 +309,9 @@ const GROUPS = {
   "es16": {
     // Mateo
     dearTitle: {
-      es: "Mateo",
+      es: "",
       ru: "Mateo",
-      en: "Mateo",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -327,9 +327,9 @@ const GROUPS = {
   "es17": {
     // Kim
     dearTitle: {
-      es: "Kim",
+      es: "",
       ru: "Kim",
-      en: "Kim",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -345,9 +345,9 @@ const GROUPS = {
   "es18": {
     // Alex y Sebastián
     dearTitle: {
-      es: "Alex y Sebastián",
+      es: "",
       ru: "Alex y Sebastián",
-      en: "Alex y Sebastián",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -363,9 +363,9 @@ const GROUPS = {
   "es19": {
     // Liuda y Alejó
     dearTitle: {
-      es: "Liuda y Alejó",
+      es: "",
       ru: "Liuda y Alejó",
-      en: "Liuda y Alejó",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -381,9 +381,9 @@ const GROUPS = {
   "es20": {
     // Kianny
     dearTitle: {
-      es: "Kianny",
+      es: "",
       ru: "Kianny",
-      en: "Kianny",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -399,9 +399,9 @@ const GROUPS = {
   "es21": {
     // Yulia y Diego
     dearTitle: {
-      es: "Yulia y Diego",
+      es: "",
       ru: "Yulia y Diego",
-      en: "Yulia y Diego",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -417,9 +417,9 @@ const GROUPS = {
   "r22": {
     // Berat y Nastya
     dearTitle: {
-      es: "Berat y Nastya",
+      es: "",
       ru: "Berat y Nastya",
-      en: "Berat y Nastya",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -435,9 +435,9 @@ const GROUPS = {
   "en23": {
     // Robert
     dearTitle: {
-      es: "Robert",
+      es: "",
       ru: "Robert",
-      en: "Robert",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -453,9 +453,9 @@ const GROUPS = {
   "es24": {
     // Karen
     dearTitle: {
-      es: "Karen",
+      es: "",
       ru: "Karen",
-      en: "Karen",
+      en: "",
     },
     dearBody: {
       es: "",
@@ -471,7 +471,7 @@ const GROUPS = {
   "r25": {
     // Жанна
     dearTitle: {
-      es: "Жанна",
+      es: Жанна",
       ru: "Жанна",
       en: "Жанна",
     },
