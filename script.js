@@ -261,7 +261,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -297,7 +297,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -315,7 +315,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -333,7 +333,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -387,7 +387,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -441,7 +441,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -459,7 +459,7 @@ const GROUPS = {
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -471,13 +471,13 @@ const GROUPS = {
   "r25": {
     // Жанна
     dearTitle: {
-      es: Жанна",
+      es: "Жанна",
       ru: "Жанна",
       en: "Жанна",
     },
     dearBody: {
       es: "",
-      ru: "",
+      ru: "С огромной радостью приглашаем тебя разделить с нами один из самых важных дней в нашей жизни.",
       en: "",
     },
     guestNames: {
@@ -594,7 +594,7 @@ const copy = {
   en: {
     heroTitle: "We’re getting married",
     scrollBtn: "View details",
-    dearTitle: "Dear friends,",
+    dearTitle: "Dear famaily and friends,",
     dearBody:
       "We would love to celebrate this special day with you. Your presence means the world to us.",
     detailsTitle: "Details",
